@@ -1,24 +1,23 @@
-# FresherNote
+# VeloCartographer
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku] **NB:** Need to Set this up.
 
 [heroku]: http://www.herokuapp.com
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails
-and React.js. FresherNote allows users to:
+VeloCartographer is a web application inspired by MapMyRide and Strava that is
+built with Rails and React.js. In VeloCartographer allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Create, read, edit, and delete notes
-- [ ] Organize notes within Notebooks
-- [ ] Tag notes with multiple tags and search notes by tag
-- [ ] Search through notes for blocks of text
-- [ ] Apply complex styling to notes while editing
-- [ ] Set reminders on notes
+- [ ] Create workouts
+- [ ] Track distance and time on bike
+- { } Track improvement over time
+- [ ] Compare with friends
+- [ ] Create routes on map 
 
 ## Design Docs
 * [View Wireframes][view]
