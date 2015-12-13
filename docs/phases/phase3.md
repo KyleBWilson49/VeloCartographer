@@ -2,43 +2,36 @@
 
 ## Rails
 ### Models
-* Notebook
-* Tag
-* Tagging
+* Follower
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
+* Api::FollowersController (create, destroy, index)
 
 ### Views
-* notebooks/index.json.jbuilder
-* notebooks/show.json.jbuilder
-* tags/show.json.jbuilder
+* Users/index.json.jbuilder
+* UserTotals/show.json.jbuilder
+* Follow/create.json.jbuilder
+* Follow/index.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
+* UsersIndex
 * SearchIndex
+* UserTotals
+* UserFollowsTotals
 
 ### Stores
-* Notebook
+* add to user store
 
 ### Actions
-* ApiActions.receiveAllNotebooks -> triggered by ApiUtil
-* ApiActions.receiveSingleNotebook
-* ApiActions.deleteNotebook
-* NotebookActions.fetchAllNotebooks -> triggers ApiUtil
-* NotebookActions.fetchSingleNotebook
-* NotebookActions.createNotebook
-* NotebookActions.editNotebook
+* ApiActions.receiveAllUserTotals -> triggered by ApiUtil
+* NotebookActions.fetchAllUserTotals -> triggers ApiUtil
+* NotebookActions.createFollow
 * NotebookActions.destroyNotebook
 
 ### ApiUtil
-* ApiUtil.fetchAllNotebooks
-* ApiUtil.fetchSingleNotebook
-* ApiUtil.createNotebook
-* ApiUtil.editNotebook
-* ApiUtil.destroyNotebook
+* ApiUtil.fetchAllUserTotals
+* ApiUtil.createFollow
+* ApiUtil.destroyFollow
 
 ## Gems/Libraries

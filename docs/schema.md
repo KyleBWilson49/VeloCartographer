@@ -9,6 +9,7 @@ password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 weight          | string    | not null
 gender          | string    | not null
+birthdate       | datetime  | not null
 
 
 ## routes
@@ -28,7 +29,7 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 user_id         | integer   | not null, foreign key
-route_id        | integer   | not null, foreign key
+route_id        | integer   | foreign key
 distance        | float     | not null
 duration        | datetime  | not null
 elevation_gain  | integer   | not null
@@ -40,4 +41,4 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 follower_id     | integer   | not null, foreign key
-following_id    | integer   | not null, foreign key 
+following_id    | integer   | not null, foreign key

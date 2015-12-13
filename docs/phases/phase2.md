@@ -1,4 +1,4 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+# Phase 2: Flux Architecture with User and Workout CRUD (2 days)
 
 ## Rails
 ### Models
@@ -9,29 +9,36 @@
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* UserIndexItem
+* WorkoutsIndex
+  - WorkoutsIndexItem
+* Workout Form
 
 ### Stores
-* Note
+* User
+* Workouts
 
 ### Actions
-* ApiActions.receiveAllNotes -> triggered by ApiUtil
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
-* NoteActions.fetchAllNotes -> triggers ApiUtil
-* NoteActions.fetchSingleNote 
-* NoteActions.createNote
-* NoteActions.editNote 
-* NoteActions.destroyNote
+* ApiActions.receiveAllWorkouts -> triggered by ApiUtil
+* ApiActions.receiveSingleWorkout
+* ApiActions.deleteWorkout
+* ApiActions.receiveSingleUser
+* WorkoutActions.fetchAllWorkouts -> triggers ApiUtil
+* WorkoutActions.fetchSingleWorkout
+* WorkoutActions.createWorkout
+* WorkoutActions.editWorkout
+* WorkoutActions.destroyWorkout
+* User.Actions.createUser
+* User.Actions.editUser
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchAllWorkouts
+* ApiUtil.fetchSingleWorkout
+* ApiUtil.createWorkout
+* ApiUtil.editWorkout
+* ApiUtil.destroyWorkout
+* ApiUtil.fetchUser
+* ApiUtil.editUser 
 
 ## Gems/Libraries
 * Flux Dispatcher (npm)

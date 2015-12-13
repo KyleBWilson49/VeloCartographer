@@ -3,27 +3,18 @@
 ## Rails
 ### Models
 * User
-* Note
+* Workout
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* Api::WorkoutsController (create, destroy, index, show, update)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
-
-## Flux
-### Views (React Components)
-
-### Stores
-
-### Actions
-
-### ApiUtil
+* workouts/index.json.jbuilder
+* workouts/show.json.jbuilder
 
 ## Gems/Libraries
 * BCrypt (Gem)
