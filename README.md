@@ -84,8 +84,7 @@ I will then create seed data so that the site is not empty.
 ### Bonus Features (TBD)
 - [ ] Prettify transitions
 - [ ] Use javascript library for cleaner tag selection
-- [ ] Changelogs for Notes
-- [ ] Pagination / infinite scroll for Notes Index
+- [ ] Pagination / infinite scroll for workouts Index
 - [ ] Allow user to specify run or bike
 
 [phase-one]: ./docs/phases/phase1.md

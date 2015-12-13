@@ -6,21 +6,25 @@
 ## New Session
 ![new-session]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## Users Page
+![userPage]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
+## Users Feed
+![feed]
 
-## NoteBookForm
-![notebook-form]
+## Create Workout
+![workout-form]
+
+## Create Route
+![route-form]
 
 ## Component Heirarchy
 ![component-heirarchy]
 
-[new-user]: ./wireframes/new_user.png
-[new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
-[component-heirarchy]: ./wireframes/component_heirarchy.png
+[new-user]: ./wireframes/CreateAccount.png
+[new-session]: ./wireframes/SignIn.png
+[userPage]: ./wireframes/UsersPage.png
+[feed]: ./wireframes/UsersFeed.png
+[workout-form]: ./wireframes/CreateWorkout.png
+[route-form]: ./wireframes/CreateRoute.png
+[component-heirarchy]: ./wireframes/AppHigharchy.png
