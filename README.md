@@ -1,6 +1,6 @@
 # VeloCartographer
 
-[Heroku link][heroku] **NB:** Need to Set this up.
+[Heroku link][heroku] **NB:** In the process now.
 
 [heroku]: http://www.herokuapp.com
 
