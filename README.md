@@ -75,14 +75,16 @@ users will be able to use the route again with out creating it.
 
 Phase 5 will be about testing for any bugs and making the styling look better
 I will run the site through everything it should do in many ways to find bugs.
-I will then create seed data so that the site is not empty.
+I will then create seed data so that the site is not empty. I also want to add
+a splash page so that a new user does not go straight to the log in or sign up
+page.
 
 
 ### Bonus Features (TBD)
-- [ ] Prettify transitions
-- [ ] Use javascript library for cleaner tag selection
+- [ ] Make the site look better.
 - [ ] Pagination / infinite scroll for workouts Index
 - [ ] Allow user to specify run or bike
+- [ ] Make routes have easier creation
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
