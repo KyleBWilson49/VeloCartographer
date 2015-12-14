@@ -9,8 +9,6 @@
 VeloCartographer is a web application inspired by MapMyRide and Strava that is
 built with Rails and React.js. In VeloCartographer allows users to:
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
 - [ ] Create an account
 - [ ] Log in / Log out
 - [ ] Create workouts
@@ -33,8 +31,7 @@ built with Rails and React.js. In VeloCartographer allows users to:
 In Phase 1, I will begin by implementing user signup and authentication (using
 BCrypt). There will be a basic landing page after signup that will contain the
 container for the application and have a basic user page where the user can
-see their own workouts. There will be a main page where users can see their
-feed of their own workouts. This will all be done in json, with no styling of
+see their own workouts. This will all be done in json, with no styling of
 page. Also will set get the app on to heroku.
 
 [Details][phase-one]
