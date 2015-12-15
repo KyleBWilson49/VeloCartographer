@@ -32,7 +32,7 @@ In Phase 1, I will begin by implementing user signup and authentication (using
 BCrypt). There will be a basic landing page after signup that will contain the
 container for the application and have a basic user page where the user can
 see their own workouts. This will all be done in json, with no styling of
-page. Also will set get the app on to heroku.
+page. Also will get the app setup on heroku.
 
 [Details][phase-one]
 

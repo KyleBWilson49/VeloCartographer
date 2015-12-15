@@ -6,7 +6,7 @@
 * Workout
 
 ### Controllers
-* UsersController (create, new)
+* Api::UsersController (create, new, index, show)
 * SessionsController (create, new, destroy)
 * Api::WorkoutsController (create, destroy, index, show, update)
 
