@@ -22,6 +22,7 @@ route_positions | text      | not null
 route_name      | string    | not null
 elev_diff       | integer   | not null
 distance        | float     | not null
+route_description| text     |
 
 
 
@@ -36,6 +37,8 @@ distance        | float     | not null
 duration        | time      | not null
 elevation_gain  | integer   | not null
 calories_burned | integer   | not null
+title           | string    | not null
+description     | text      | 
 
 ## Followers
 

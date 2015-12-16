@@ -27,6 +27,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_signed_out!
-    redirect_to user_url(current_user) if signed_in?
+    redirect_to api_user_url(current_user) if signed_in?
   end
 end

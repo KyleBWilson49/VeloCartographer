@@ -1,13 +1,30 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  weight          :integer          not null
+#  birthdate       :date             not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  gender          :string           not null
+#
+
 class User < ActiveRecord::Base
   attr_reader :password
 
   after_initialize :ensure_session_token
 
   validates :username, :password_digest, :session_token, presence: true
-  validates :password, length:  { minimum: 6, allow_null: true }
+  validates :password, length:  { minimum: 6, allow_nil: true }
   validates :session_token, :username, uniqueness: true
   validates :gender, inclusion: { in: %w(M F) }
   validates :birthdate, :weight, presence: true
+
+  has_many :workouts
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

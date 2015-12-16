@@ -1,0 +1,48 @@
+<h1>New User!</h1>
+
+<form class="new-user-form" action="<%= api_users_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+  <br/>
+
+  <label for="user_username">Username</label>
+  <input type="text"
+         name="user[username]"
+         value="<%= @user.username %>"
+         id="user_username">
+
+  <br/>
+
+  <label for="user_password">Password</label>
+  <input type="password"
+         name="user[password]"
+         id="user_password">
+
+  <br/>
+
+  <label for="user_weight">Weight</label>
+  <input type="number"
+         name="user[weight]"
+         min="0"
+         max="500"
+         step="1"
+         value="<%= @user.weight %>"
+         id="user_weight">
+
+  <br/>
+
+  <label for="user_gender">Gender</label>
+  <input type="radio" name="user[gender]" value="M" id="user_gender">Male
+  <input type="radio" name="user[gender]" value="F" id="user_gender">Female
+
+<br/>
+
+  <label for="birthdate">Birthdate</label>
+  <input type="date" name="user[birthdate]" value="<%= @user.birthdate %>">
+
+<br/>
+
+  <input type="submit" value="Create New User">
+</form>

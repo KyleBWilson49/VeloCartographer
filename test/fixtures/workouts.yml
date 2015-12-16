@@ -1,16 +1,18 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: workouts
 #
 #  id              :integer          not null, primary key
-#  username        :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  weight          :integer          not null
-#  birthdate       :date             not null
+#  user_id         :integer          not null
+#  route_id        :integer
+#  distance        :float            not null
+#  calories_burned :integer          not null
+#  elevation_gain  :integer          default(0), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  gender          :string           not null
+#  title           :string           not null
+#  description     :text
+#  duration        :integer          not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
