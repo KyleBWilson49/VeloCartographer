@@ -36,7 +36,7 @@ ApiUtil = {
       method: "PATCH",
       data: { user: changes },
       success: function (user) {
-        ApiActions.receiveCurrentUser(user);
+        ApiActions.updateCurrentUser(user);
       }
     });
   }

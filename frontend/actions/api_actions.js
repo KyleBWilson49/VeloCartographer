@@ -21,6 +21,14 @@ ApiActions = {
       actionType: WorkoutConstants.NEW_WORKOUT,
       workout: workout
     });
+  },
+
+  updateCurrentUser: function (data) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.UPDATE_USER,
+      user: data,
+      message: data.message
+    });
   }
 };
 

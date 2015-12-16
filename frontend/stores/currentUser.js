@@ -14,6 +14,9 @@ CurrentUserStore.__onDispatch = function (payload) {
     case WorkoutConstants.CURRENT_USER:
       resetCurrentUser(payload.user);
       break;
+    case WorkoutConstants.UPDATE_USER:
+      resetCurrentUser(payload.user);
+      break;
   }
 };
 
