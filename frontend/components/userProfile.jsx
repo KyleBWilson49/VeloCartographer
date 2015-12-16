@@ -18,7 +18,7 @@ var UserProfile = React.createClass({
 
     changes.weight = target[0].value;
     changes.gender = target[1].checked ? "M" : "F";
-    changes.birthdate = target[3];
+    changes.birthdate = target[3].value;
 
     var id = this.state.user().currentUser.id;
     ApiUtil.updateUser(changes, id);
