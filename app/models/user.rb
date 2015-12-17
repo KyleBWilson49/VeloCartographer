@@ -25,6 +25,11 @@ class User < ActiveRecord::Base
   validates :birthdate, :weight, presence: true
 
   has_many :workouts
+  has_many :in_follows, class_name: "Following", foreign_key: "following_id"
+  has_many :out_follows, class_name: "Following", foreign_key: "follower_id"
+  has_many :followers, through: :in_follows, source: :follower
+  has_many :followings, through: :out_follows, source: :following
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

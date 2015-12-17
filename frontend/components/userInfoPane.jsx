@@ -1,5 +1,6 @@
 var React = require('react'),
     CurrentUserStore = require('../stores/currentUser'),
+    WorkoutStore = require('../stores/workouts'),
     ApiUtil = require('../util/api_util'),
     CurrentUserTotalsStore = require('../stores/currentUserTotals');
 
@@ -14,11 +15,19 @@ var InfoPane = React.createClass({
   componentDidMount: function () {
     this.userListener = CurrentUserStore.addListener(this._onChange);
     this.totalsListener = CurrentUserTotalsStore.addListener(this._getTotals);
+    this.workoutListener = WorkoutStore.addListener(this._updateTotals);
   },
 
   componentWillUnmount: function () {
     this.userListener.remove();
     this.totalsListener.remove();
+    this.workoutListener.remove();
+  },
+
+  _updateTotals: function () {
+    if (Object.keys(this.state.currentUser).length > 0) {
+      ApiUtil.fetchCurrentUserTotals(this.state.currentUser.id);
+    }
   },
 
   _getTotals: function () {
