@@ -44,39 +44,45 @@ var WorkoutForm = React.createClass({
 
     workout.duration = durationInSeconds;
 
-    ApiUtil.createWorkout(workout);
+    ApiUtil.createWorkout(workout, function () {
+      ApiUtil.fetchWorkouts();
+    });
 
     this.setState(this.blankAttrs);
   },
 
   render: function () {
     return (
-      <form className="workout-form" onSubmit={this.createWorkout}>
+      <form role='form' className="workout-form" onSubmit={this.createWorkout}>
         <h3>Create New Workout</h3>
-        <div>
+        <div className="form-group">
           <label htmlFor='workout-title'>Title</label>
+          <br/>
           <input type="text"
                  id="workout-title"
                  valueLink={this.linkState('title')}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor='workout-desctiption'>Description</label>
+          <br/>
           <textarea id="workout-desctiption"
                     valueLink={this.linkState('description')}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor='workout-distance'>Distance</label>
+          <br/>
           <input type="text"
                  id="workout-distance"
                  valueLink={this.linkState('distance')}
           />
         </div>
-        <div>
+        <div className="form-group">
           <p>Duration</p>
-          <div>
+          <div className="form-group">
             <label htmlFor='workout-duration-hour'>Hr</label>
+            <br/>
             <input type="text"
                    id="workout-duration-hour"
                    placeholder="hh"
@@ -84,8 +90,9 @@ var WorkoutForm = React.createClass({
                    valueLink={this.linkState('durationHour')}
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor='workout-duration-minute'>Min</label>
+            <br/>
             <input type="text"
                    id="workout-duration-minute"
                    placeholder="mm"
@@ -93,8 +100,9 @@ var WorkoutForm = React.createClass({
                    valueLink={this.linkState('durationMinute')}
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor='workout-duration-second'>Sec</label>
+            <br/>
             <input type="text"
                    id="workout-duration-second"
                    placeholder="ss"
@@ -103,8 +111,9 @@ var WorkoutForm = React.createClass({
             />
           </div>
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor='workout-calories'>Calories</label>
+          <br/>
           <input type="text"
                  id="workout-calories"
                  valueLink={this.linkState('calories_burned')}

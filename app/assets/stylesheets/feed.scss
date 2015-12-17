@@ -1,0 +1,71 @@
+.feed-page {
+  width: 1200px;
+  margin: auto;
+}
+
+.feed {
+  width: 800px;
+  float: left;
+  margin-left: 20px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  border-radius: 10px;
+  background: #fff;
+  background-color: rgba(255, 255, 255, .7);
+}
+
+.user-info {
+  width: 300px;
+  height: 600px;
+  margin: 20px;
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  background-color: rgba(255, 255, 255, .7);
+}
+
+.feed-item {
+  border: 1px solid #ccc;
+  width: 750px;
+  height: 250px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 20px;
+  background: #fff;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+#feed-item-info {
+  width: 500px;
+  float: left;
+  margin: 24px;
+  margin-right: 0px;
+}
+
+#feed-item-info .feed-user-info {
+  float: left;
+  border: 1px solid black;
+  width: 150px;
+  margin: 0px;
+}
+
+.feed-mini-map {
+  float: right;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 24px;
+  margin-right: 24px;
+}
+
+#feed-item-info #title {
+  font-weight: bold;
+}
+
+.feed-workout-details {
+  float: left;
+  padding: 10px;
+  border: 1px solid black;
+}

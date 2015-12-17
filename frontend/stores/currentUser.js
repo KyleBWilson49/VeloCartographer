@@ -3,10 +3,16 @@ var Store = require('flux/utils').Store,
     WorkoutConstants = require('../constants/workout_constants');
 
 var _currentUser = {};
+var _message = '';
+var _totals = {};
 var CurrentUserStore = new Store(AppDispatcher);
 
 CurrentUserStore.user = function () {
   return _currentUser;
+};
+
+CurrentUserStore.message = function () {
+  return _message;
 };
 
 CurrentUserStore.__onDispatch = function (payload) {
@@ -16,12 +22,26 @@ CurrentUserStore.__onDispatch = function (payload) {
       break;
     case WorkoutConstants.UPDATE_USER:
       resetCurrentUser(payload.user);
+      resetMessage(payload.message);
+      break;
+    case WorkoutConstants.LOGGED_OUT:
+      logOut();
       break;
   }
 };
 
 var resetCurrentUser = function (user) {
   _currentUser = user;
+  CurrentUserStore.__emitChange();
+};
+
+var resetMessage = function (message) {
+  _message = message;
+  CurrentUserStore.__emitChange();
+};
+
+var logOut = function () {
+  _currentUser = {};
   CurrentUserStore.__emitChange();
 };
 

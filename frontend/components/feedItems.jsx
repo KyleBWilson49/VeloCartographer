@@ -16,14 +16,21 @@ module.exports = React.createClass({
     var duration = hours + ':' + minutes + ':' + seconds;
 
     return (
-    <div onClick={this.goToUsersPage}>
-      <p>Usernam: {workout.username}</p>
-      <p>title: {workout.title}</p>
-      <p>distance: {workout.distance}</p>
-      <p>duration: {duration}</p>
-      <p>Calories: {workout.calories}</p>
-      <p>Elevation Diff: {workout.elevation_gain}</p>
-      <p>Description: {workout.description}</p>
+    <div className="feed-item" onClick={this.goToUsersPage}>
+      <div id='feed-item-info' className='clear-fix'>
+        <div className='feed-user-info'>
+          <p id='title'>{workout.title}</p>
+          <p>Username: {workout.username}</p>
+        </div>
+        <div className='feed-workout-details'>
+          <p>distance: {workout.distance}</p>
+          <p>duration: {duration}</p>
+          <p>Calories: {workout.calories}</p>
+          <p>Elevation Diff: {workout.elevation_gain}</p>
+        </div>
+      </div>
+      <div className='feed-mini-map'>
+      </div>
     </div>
   );
   }

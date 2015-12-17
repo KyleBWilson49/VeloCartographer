@@ -1,6 +1,6 @@
 class Api::WorkoutsController < ApplicationController
   def index
-    @workouts = Workout.all
+    @workouts = Workout.all.reverse_order
   end
 
   def show
@@ -9,7 +9,7 @@ class Api::WorkoutsController < ApplicationController
   def create
     @workout = Workout.new(workout_params)
     @workout.user_id = current_user.id
-    
+
     if @workout.save
       render :index
     else

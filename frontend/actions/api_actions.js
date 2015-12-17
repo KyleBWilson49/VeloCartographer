@@ -29,6 +29,16 @@ ApiActions = {
       user: data,
       message: data.message
     });
+  },
+
+  loggedOut: function () {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.LOGGED_OUT
+    });
+  },
+
+  currentUserTotals: function () {
+    
   }
 };
 

@@ -7,7 +7,25 @@ var UserProfile = React.createClass({
   mixins: [LinkedStateMixin],
 
   getInitialState: function () {
-    return { user: UserStore.user };
+    return {
+      user: UserStore.user,
+      message: UserStore.message()
+    };
+  },
+
+  componentDidMount: function () {
+    this.userListener = UserStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount: function () {
+    this.userListener.remove();
+  },
+
+  _onChange: function () {
+    this.setState({
+      user: UserStore.user,
+      message: UserStore.message()
+    });
   },
 
   editProfile: function (event) {
@@ -27,10 +45,12 @@ var UserProfile = React.createClass({
   render: function () {
     var user = this.state.user().currentUser;
     return (
-      <div>
+      <div className='user-profile'>
         <h1>User Profile</h1>
+        <p>{UserStore.message()}</p>
         <form className="edit-user-form" onSubmit={this.editProfile}>
           <label htmlFor="user_weight">Weight</label>
+          <br/>
           <input type="number"
                  name="user[weight]"
                  min="0"
@@ -42,6 +62,7 @@ var UserProfile = React.createClass({
           <br/>
 
           <label htmlFor="user_gender">Gender</label>
+          <br/>
           <input type="radio"
                  name="user[gender]"
                  value="M"
@@ -54,13 +75,15 @@ var UserProfile = React.createClass({
         <br/>
 
           <label htmlFor="birthdate">Birthdate</label>
+          <br/>
           <input type="date"
                  name="user[birthdate]"
                  defaultValue={user.birthdate}/>
 
         <br/>
+        <br/>
 
-          <button>Save Changes</button>
+          <button className="btn btn-primary">Save Changes</button>
         </form>
       </div>
     );

@@ -1,7 +1,8 @@
 var React = require('react'),
     WorkoutStore = require('../stores/workouts'),
     ApiUtil = require('../util/api_util'),
-    FeedItem = require('./feedItems');
+    FeedItem = require('./feedItems'),
+    InfoPane = require('./userInfoPane');
 
 var Feed = React.createClass({
   getInitialState: function () {
@@ -28,11 +29,11 @@ var Feed = React.createClass({
       return <FeedItem key={workout.workoutId} workout={workout} />;
     });
     return (
-      <div>
-        <h3>List of Workouts</h3>
-        <div>
+      <div className="feed-page clear-fix">
+        <div className="feed">
           {workouts}
         </div>
+        <InfoPane />
       </div>
     );
   }

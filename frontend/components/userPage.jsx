@@ -1,6 +1,8 @@
 var React = require('react'),
     WorkoutForm = require('./workoutForm'),
-    WorkoutStore = require('../stores/workouts');
+    WorkoutStore = require('../stores/workouts'),
+    UserPageWorkoutItem = require('./userPageWorkoutItem'),
+    InfoPane = require('./userInfoPane');
 
 var UserPage = React.createClass({
   getInitialState: function () {
@@ -25,16 +27,16 @@ var UserPage = React.createClass({
 
   render: function () {
     var workouts = this.state.workouts.map(function (workout) {
-      return <li key={workout.workoutId}>{workout.title}</li>;
+      return <UserPageWorkoutItem key={workout.workoutId} workout={workout} />;
     });
 
     return (
-      <div>
-        <h3>This is the users page</h3>
-        <WorkoutForm />
-        <ul>
+      <div className='user-page clear-fix'>
+        <InfoPane />
+        <div className='user-workout-list'>
+          <WorkoutForm className='workout-form' />
           {workouts}
-        </ul>
+        </div>
       </div>
     );
   }
