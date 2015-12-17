@@ -6,8 +6,8 @@ var React = require('react'),
 var InfoPane = React.createClass({
   getInitialState: function () {
     return {
-      currentUser: CurrentUserStore.user,
-      currentUserTotals: CurrentUserTotalsStore.totals
+      currentUser: CurrentUserStore.user(),
+      currentUserTotals: CurrentUserTotalsStore.totals()
     };
   },
 
@@ -22,27 +22,45 @@ var InfoPane = React.createClass({
   },
 
   _getTotals: function () {
-    this.setState({ currentUserTotals: CurrentUserTotalsStore.totals });
+    this.setState({ currentUserTotals: CurrentUserTotalsStore.totals() });
   },
 
   _onChange: function () {
-    this.setState({ currentUser: CurrentUserStore.user });
-    ApiUtil.fetchCurrentUserTotals(this.state.currentUser().currentUser.id);
+    this.setState({ currentUser: CurrentUserStore.user() });
+
+    if (Object.keys(this.state.currentUser).length > 0) {
+      ApiUtil.fetchCurrentUserTotals(this.state.currentUser.id);
+    }
   },
 
   render: function () {
     var currentUser = this.state.currentUser;
-    var currentUserTotals = this.state.currentUserTotals;
 
-    return (
-      <div className="user-info">
-        <p>{currentUser.username}</p>
-        <p>{currentUserTotals.totalDuration}</p>
-        <p>{currentUserTotals.totalDistance}</p>
-        <p>{currentUserTotals.totalCalories}</p>
-        <p>{currentUserTotals.workoutCount}</p>
-      </div>
-    );
+    if (Object.keys(this.state.currentUser).length > 0) {
+      var currentUserTotals = this.state.currentUserTotals;
+
+      var hours = Math.floor(currentUserTotals.totalDuration / 3600);
+      var minutes = Math.floor(currentUserTotals.totalDuration % 3600 / 60);
+      var seconds = currentUserTotals.totalDuration % 60;
+      var duration = hours + ':' + minutes + ':' + seconds;
+
+      return (
+        <div className="user-info">
+          <p>{currentUser.username}</p>
+          <p>Lifetime Stats</p>
+          <p>Duration: {duration}</p>
+          <p>Distance: {currentUserTotals.totalDistance}</p>
+          <p>Calories: {currentUserTotals.totalCalories}</p>
+          <p>Workouts: {currentUserTotals.workoutCount}</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="user-info">
+          <p>Please log in to see your total stats and compare with others</p>
+        </div>
+      );
+    }
   }
 });
 

@@ -8,7 +8,7 @@ var UserProfile = React.createClass({
 
   getInitialState: function () {
     return {
-      user: UserStore.user,
+      user: UserStore.user(),
       message: UserStore.message()
     };
   },
@@ -23,7 +23,7 @@ var UserProfile = React.createClass({
 
   _onChange: function () {
     this.setState({
-      user: UserStore.user,
+      user: UserStore.user(),
       message: UserStore.message()
     });
   },
@@ -43,7 +43,7 @@ var UserProfile = React.createClass({
   },
 
   render: function () {
-    var user = this.state.user().currentUser;
+    var user = this.state.user;
     return (
       <div className='user-profile'>
         <h1>User Profile</h1>

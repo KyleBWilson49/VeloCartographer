@@ -37,8 +37,11 @@ ApiActions = {
     });
   },
 
-  currentUserTotals: function () {
-    
+  currentUserTotals: function (totals) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.CURRENT_USER_TOTALS,
+      totals: totals
+    });
   }
 };
 

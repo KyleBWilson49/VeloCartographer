@@ -4,7 +4,6 @@ var Store = require('flux/utils').Store,
 
 var _currentUser = {};
 var _message = '';
-var _totals = {};
 var CurrentUserStore = new Store(AppDispatcher);
 
 CurrentUserStore.user = function () {
@@ -31,7 +30,7 @@ CurrentUserStore.__onDispatch = function (payload) {
 };
 
 var resetCurrentUser = function (user) {
-  _currentUser = user;
+  _currentUser = user.currentUser ? user.currentUser : {};
   CurrentUserStore.__emitChange();
 };
 

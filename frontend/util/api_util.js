@@ -57,7 +57,7 @@ ApiUtil = {
       url: "/api/users/" + id,
       method: "GET",
       success: function (totals) {
-          ApiActions.currentUserTotals();
+          ApiActions.currentUserTotals(totals);
       }
     });
   }

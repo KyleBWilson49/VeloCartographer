@@ -11,14 +11,13 @@ CurrentUserTotalsStore.totals = function () {
 
 CurrentUserTotalsStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-    case WorkoutConstants.UPDATE_TOTALS:
+    case WorkoutConstants.CURRENT_USER_TOTALS:
       updateTotals(payload.totals);
       break;
   }
 };
 
 var updateTotals = function (totals) {
-  debugger
   _totals = totals;
   CurrentUserTotalsStore.__emitChange();
 };

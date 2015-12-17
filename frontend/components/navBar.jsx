@@ -24,7 +24,7 @@ var NavBar = React.createClass({
   },
 
   _redirectToUserPage: function () {
-    var userId = this.state.currentUser.currentUser.id;
+    var userId = this.state.currentUser.id;
     this.history.push("user/" + userId);
   },
 
@@ -33,7 +33,7 @@ var NavBar = React.createClass({
   },
 
   _redirectToUserProfile: function () {
-    var userId = this.state.currentUser.currentUser.id;
+    var userId = this.state.currentUser.id;
     this.history.push("profile");
   },
 
@@ -43,7 +43,7 @@ var NavBar = React.createClass({
 
   render: function () {
     var buttons;
-    if (!this.state.currentUser.currentUser) {
+    if (Object.keys(this.state.currentUser).length === 0) {
       buttons = (
         <div className='clear-fix' id='nav-bar'>
           <h1 className='title'>Velo Cartographer</h1>
