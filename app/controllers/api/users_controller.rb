@@ -5,7 +5,10 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render :show
+    @workout_count = @user.workouts.count
+    @total_distance = @user.workouts.sum('distance')
+    @total_duration = @user.workouts.sum('duration')
+    @total_calories = @user.workouts.sum('calories_burned')
   end
 
   def new

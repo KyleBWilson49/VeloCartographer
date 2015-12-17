@@ -18,6 +18,7 @@ CurrentUserTotalsStore.__onDispatch = function (payload) {
 };
 
 var updateTotals = function (totals) {
+  debugger
   _totals = totals;
   CurrentUserTotalsStore.__emitChange();
 };
