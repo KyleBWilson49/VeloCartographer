@@ -7,12 +7,14 @@ var React = require('react'),
 var App = require('./components/app'),
     Feed = require('./components/feed'),
     UserPage = require('./components/userPage'),
-    UserProfile = require('./components/userProfile');
+    UserProfile = require('./components/userProfile'),
+    CreateRoute = require('./components/maps/createRoute');
 
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Feed}/>
-    <Route path="user/:userId" component={UserPage}/>
+    <Route path="user/:userId" component={UserPage} />
+    <Route path="createRoute" component={CreateRoute} />
     <Route path="profile" component={UserProfile}/>
   </Route>
 );

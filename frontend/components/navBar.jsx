@@ -32,6 +32,10 @@ var NavBar = React.createClass({
     this.history.push('/');
   },
 
+  _redirectToCreateRoute: function () {
+    this.history.push('createRoute');
+  },
+
   _redirectToUserProfile: function () {
     var userId = this.state.currentUser.id;
     this.history.push("profile");
@@ -60,6 +64,7 @@ var NavBar = React.createClass({
           <nav onClick={this._redirectToUserProfile}>Profile</nav>
           <nav onClick={this._redirectToUserPage}>User Page</nav>
           <nav onClick={this._redirectToFeed}>Feed</nav>
+          <nav onClick={this._redirectToCreateRoute}>Create Route</nav>
         </div>
       );
     }
