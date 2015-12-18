@@ -5,9 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= puts("#{ENV['GOOGLE_MAPS_API_KEY']}") %>
+  <%= puts('hello') %>
   <script type="text/javascript">
-    window.GOOGLE_MAPS_API_KEY = <%= ENV['GOOGLE_MAPS_API_KEY'] %>
+    window.GOOGLE_KEYS = {
+      GOOGLE_MAPS: "<%= ENV['GOOGLE_MAPS_API_KEY'] %>"
+    }
   </script>
+  <script src="<%= "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}" %>"
+          charset="utf-8"></script>
 </head>
 <body>
 

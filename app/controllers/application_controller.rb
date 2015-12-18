@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?
 
+
   private
   def current_user
     @current_user ||= User.find_by_session_token(session[:token])
@@ -29,4 +30,6 @@ class ApplicationController < ActionController::Base
   def require_signed_out!
     redirect_to api_user_url(current_user) if signed_in?
   end
+
+
 end

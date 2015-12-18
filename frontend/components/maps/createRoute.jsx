@@ -1,11 +1,12 @@
-var React = require('react');
+var React = require('react'),
+    CreateRouteMap = require('./createRouteMap');
 
 var CreateRoute = React.createClass({
   render: function () {
     return (
       <div className="create-route-page clear-fix">
         <div className="block-for-map">
-          map
+          <CreateRouteMap />
         </div>
         <div className="map-tools">
           route tools
