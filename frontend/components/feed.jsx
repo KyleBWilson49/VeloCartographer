@@ -3,7 +3,8 @@ var React = require('react'),
     ApiUtil = require('../util/api_util'),
     FeedItem = require('./feedItems'),
     InfoPane = require('./userInfoPane'),
-    CurrentUserStore = require('../stores/currentUser');
+    CurrentUserStore = require('../stores/currentUser'),
+    AllUserPane = require('./allUserPane');
 
 var Feed = React.createClass({
   getInitialState: function () {
@@ -59,6 +60,7 @@ var Feed = React.createClass({
           {workouts}
         </div>
         <InfoPane />
+        <AllUserPane />
       </div>
     );
   }
