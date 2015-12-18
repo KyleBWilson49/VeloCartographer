@@ -1,10 +1,14 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    ApiUtil = require('../../util/api_util');
+    GoogleApiUtil = require('../../util/google_api'),
+    DirectionStore = require('../../stores/directions');
 
 var CreateRouteMap = React.createClass({
   getInitialState: function () {
-      return { markers: [] };
+      return {
+        markers: [],
+        directions: DirectionStore.directions()
+      };
   },
 
   componentDidMount: function () {
@@ -19,23 +23,53 @@ var CreateRouteMap = React.createClass({
     this.map = new google.maps.Map(map, mapOptions);
     bikeLayer.setMap(this.map);
 
+    var displayOptions = {
+      suppressMarkers: true,
+      preserveViewport: true
+    };
+    this.directionsDisplay = new google.maps.DirectionsRenderer(displayOptions);
+    this.directionsDisplay.setMap(this.map);
+
     this.clickListener = google.maps.event.addListener(this.map, 'click', this.handleClick);
+    this.directionsListener = DirectionStore.addListener(this.updateDirections);
   },
 
   componentWillUnmount: function () {
     this.clickListener.remove();
+    this.directionsListener.remove();
   },
 
   handleClick: function (e) {
     var lat = e.latLng.lat();
     var lng = e.latLng.lng();
 
+    this.getCorrectedClickPos(lat, lng);
+  },
+
+  getCorrectedClickPos: function (lat, lng) {
+    GoogleApiUtil.getSnappedPos(lat, lng, this.snappedPos);
+  },
+
+  snappedPos: function (data) {
+    var position = data.snappedPoints[0].location;
+    var lat = position.latitude;
+    var lng = position.longitude;
+
     this.placeNewMarker(lat, lng);
+  },
+
+  updateDirections: function () {
+    this.setState({ directions: DirectionStore.directions() });
+    this.renderDirections();
+  },
+
+  renderDirections: function () {
+    this.directionsDisplay.setDirections(this.state.directions);
   },
 
   ICONS: {
     start: "assets/start_marker.png",
-    middle: "assets/route_marker.png",
+    middle: "assets/blue_middle_marker.png",
     end: "assets/stop_marker.png"
   },
 
@@ -49,7 +83,6 @@ var CreateRouteMap = React.createClass({
     } else if (markers.length === 1) {
       marker = this.placeEndMarker(latLng);
     } else if (markers.length > 1) {
-      // debugger
       oldMarker = markers[0];
       this.removeMarker(oldMarker);
       markers.shift();
@@ -57,12 +90,17 @@ var CreateRouteMap = React.createClass({
         lat: oldMarker.position.lat(),
         lng: oldMarker.position.lng()
       };
+
       markers.unshift(this.placeMiddleMarker(oldLatLng));
       marker = this.placeEndMarker(latLng);
     }
 
     markers.unshift(marker);
     this.setState({ markers: markers });
+
+    if (markers.length > 1) {
+      this.getDirections();
+    }
   },
 
   placeStartMarker: function (latLng) {
@@ -91,6 +129,31 @@ var CreateRouteMap = React.createClass({
 
   removeMarker: function (marker) {
     marker.setMap(null);
+  },
+
+  getDirections: function () {
+    var waypoints = this.createWaypoints();
+    var start = waypoints[0].location;
+    var end = waypoints[waypoints.length - 1].location;
+    waypoints.pop();
+    waypoints.shift();
+
+    GoogleApiUtil.getDirections(start, end, waypoints);
+  },
+
+  createWaypoints: function() {
+    var markers = this.state.markers;
+    var waypoints = [];
+
+    markers.forEach(function (marker) {
+      var latLng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+
+      waypoints.push({
+        location: latLng,
+        stopover: false
+      });
+    });
+    return waypoints;
   },
 
   render: function () {
