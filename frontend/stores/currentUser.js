@@ -3,6 +3,7 @@ var Store = require('flux/utils').Store,
     WorkoutConstants = require('../constants/workout_constants');
 
 var _currentUser = {};
+var _followings = {};
 var _message = '';
 var CurrentUserStore = new Store(AppDispatcher);
 
@@ -12,6 +13,10 @@ CurrentUserStore.user = function () {
 
 CurrentUserStore.message = function () {
   return _message;
+};
+
+CurrentUserStore.followings = function () {
+  return _followings;
 };
 
 CurrentUserStore.__onDispatch = function (payload) {
@@ -26,7 +31,40 @@ CurrentUserStore.__onDispatch = function (payload) {
     case WorkoutConstants.LOGGED_OUT:
       logOut();
       break;
+    case WorkoutConstants.CURRENT_USER_TOTALS:
+      updateFollowings(payload.info);
+      break;
+    case WorkoutConstants.ADD_FOLLOWINGS:
+      addFollowing(payload.following);
+      break;
+    case WorkoutConstants.REMOVE_FOLLOWING:
+      removeFollowing(payload.following);
+      break;
   }
+};
+
+var removeFollowing = function (following) {
+  var idx = -1;
+  _followings.forEach(function (follow, i) {
+    if (follow.id === following.id) {
+      idx = i;
+    }
+  });
+
+  if (idx >= 0) {
+    _followings.splice(idx, 1);
+  }
+  CurrentUserStore.__emitChange();
+};
+
+var addFollowing = function (following) {
+  _followings.push(following);
+  CurrentUserStore.__emitChange();
+};
+
+var updateFollowings = function (followings) {
+  _followings = followings.followings;
+  CurrentUserStore.__emitChange();
 };
 
 var resetCurrentUser = function (user) {

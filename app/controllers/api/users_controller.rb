@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:followings).find(params[:id])
     @workout_count = @user.workouts.count
     @total_distance = @user.workouts.sum('distance')
     @total_duration = @user.workouts.sum('duration')

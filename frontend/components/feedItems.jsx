@@ -5,7 +5,7 @@ module.exports = React.createClass({
   mixins: [History],
 
   goToUsersPage: function () {
-      this.history.push('user/' + this.props.workout.userId);
+      this.history.pushState(null, 'user/' + this.props.workout.userId);
   },
 
   render: function () {

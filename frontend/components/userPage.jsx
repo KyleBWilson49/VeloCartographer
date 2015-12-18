@@ -2,21 +2,34 @@ var React = require('react'),
     WorkoutForm = require('./workoutForm'),
     WorkoutStore = require('../stores/workouts'),
     UserPageWorkoutItem = require('./userPageWorkoutItem'),
-    InfoPane = require('./userInfoPane');
+    PageInfoPane = require('./userPageInfoPane'),
+    CurrentUserStore = require('../stores/currentUser'),
+    ApiUtil = require('../util/api_util');
 
 var UserPage = React.createClass({
   getInitialState: function () {
       return {
-        workouts: WorkoutStore.find(parseInt(this.props.params.userId))
+        workouts: WorkoutStore.find(parseInt(this.props.params.userId)),
+        currentUser: CurrentUserStore.user()
       };
   },
 
   componentDidMount: function () {
+    scrollTo(document, 0);
+    ApiUtil.fetchWorkouts();
     this.workoutListener = WorkoutStore.addListener(this._onChange);
+    this.currentUserListener = CurrentUserStore.addListener(this._currentUser);
   },
 
   componentWillUnmount: function () {
     this.workoutListener.remove();
+    this.currentUserListener.remove();
+  },
+
+  componentWillReceiveProps: function () {
+    this.setState({
+      workouts: WorkoutStore.find(parseInt(this.props.params.userId))
+    });
   },
 
   _onChange: function () {
@@ -25,18 +38,44 @@ var UserPage = React.createClass({
     });
   },
 
+  _currentUser: function () {
+    this.setState({
+      currentUser: CurrentUserStore.user()
+    });
+  },
+
   render: function () {
     var workouts = this.state.workouts.map(function (workout) {
       return <UserPageWorkoutItem key={workout.workoutId} workout={workout} />;
     });
 
+    var page;
+    var userPageId = parseInt(this.props.params.userId);
+
+    if (userPageId === this.state.currentUser.id) {
+      page =(
+        <div>
+          <PageInfoPane user={userPageId}/>
+          <div className='user-workout-list'>
+            <WorkoutForm className='workout-form' />
+            {workouts}
+          </div>
+        </div>
+      );
+    } else {
+      page = (
+        <div>
+          <PageInfoPane user={userPageId}/>
+          <div className='user-workout-list'>
+            {workouts}
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className='user-page clear-fix'>
-        <InfoPane />
-        <div className='user-workout-list'>
-          <WorkoutForm className='workout-form' />
-          {workouts}
-        </div>
+        {page}
       </div>
     );
   }

@@ -37,10 +37,31 @@ ApiActions = {
     });
   },
 
-  currentUserTotals: function (totals) {
+  currentUserTotals: function (info) {
     AppDispatcher.dispatch({
       actionType: WorkoutConstants.CURRENT_USER_TOTALS,
+      info: info
+    });
+  },
+
+  userTotals: function (totals) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.USER_TOTALS,
       totals: totals
+    });
+  },
+
+  addFollowing: function (following) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.ADD_FOLLOWINGS,
+      following: following
+    });
+  },
+
+  removeFollowing: function (following) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.REMOVE_FOLLOWING,
+      following: following
     });
   }
 };

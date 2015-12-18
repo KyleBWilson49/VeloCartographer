@@ -60,6 +60,36 @@ ApiUtil = {
           ApiActions.currentUserTotals(totals);
       }
     });
+  },
+
+  fetchUserTotals: function (id) {
+    $.ajax({
+      url: "/api/users/" + id,
+      method: "GET",
+      success: function (totals) {
+        ApiActions.userTotals(totals);
+      }
+    });
+  },
+
+  followUser: function (id) {
+    $.ajax({
+      url: "/api/users/" + id + "/following",
+      method: "POST",
+      success: function (follow) {
+        ApiActions.addFollowing(follow);
+      }
+    });
+  },
+
+  unfollowUser: function (id) {
+    $.ajax({
+      url: "/api/users/" + id + "/following",
+      method: "DELETE",
+      success: function (follow) {
+        ApiActions.removeFollowing(follow);
+      }
+    });
   }
 };
 
