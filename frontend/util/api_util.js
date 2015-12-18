@@ -13,8 +13,8 @@ ApiUtil = {
   fetchCurrentUser: function () {
     $.ajax({
       url: "api/session",
-      success: function (currentUser) {
-        ApiActions.receiveCurrentUser(currentUser);
+      success: function (currentUserInfo) {
+        ApiActions.receiveCurrentUser(currentUserInfo);
       }
     });
   },

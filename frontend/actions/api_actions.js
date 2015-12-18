@@ -9,10 +9,12 @@ ApiActions = {
     });
   },
 
-  receiveCurrentUser: function (currentUser) {
+  receiveCurrentUser: function (currentUserInfo) {
     AppDispatcher.dispatch({
-      actionType: WorkoutConstants.CURRENT_USER,
-      user: currentUser
+      actionType: WorkoutConstants.CURRENT_USER_INFO,
+      user: currentUserInfo.user,
+      totals: currentUserInfo.totals,
+      followings: currentUserInfo.followings
     });
   },
 

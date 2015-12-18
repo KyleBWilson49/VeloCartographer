@@ -21,7 +21,8 @@ CurrentUserStore.followings = function () {
 
 CurrentUserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-    case WorkoutConstants.CURRENT_USER:
+    case WorkoutConstants.CURRENT_USER_INFO:
+      updateFollowings(payload);
       resetCurrentUser(payload.user);
       break;
     case WorkoutConstants.UPDATE_USER:

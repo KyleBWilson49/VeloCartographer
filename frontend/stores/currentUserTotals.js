@@ -14,6 +14,9 @@ CurrentUserTotalsStore.__onDispatch = function (payload) {
     case WorkoutConstants.CURRENT_USER_TOTALS:
       updateTotals(payload.info);
       break;
+    case WorkoutConstants.CURRENT_USER_INFO:
+      updateTotals(payload);
+      break;
   }
 };
 

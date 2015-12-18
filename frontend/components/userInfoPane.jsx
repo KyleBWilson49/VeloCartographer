@@ -36,10 +36,6 @@ var InfoPane = React.createClass({
 
   _onChange: function () {
     this.setState({ currentUser: CurrentUserStore.user() });
-
-    if (Object.keys(this.state.currentUser).length > 0) {
-      ApiUtil.fetchCurrentUserTotals(this.state.currentUser.id);
-    }
   },
 
   render: function () {
