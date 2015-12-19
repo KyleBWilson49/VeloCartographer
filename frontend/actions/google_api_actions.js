@@ -3,7 +3,6 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
 
 GoogleApiActions = {
   setDirections: function (result, status) {
-    console.log(status);
     if (status === "OK") {
       AppDispatcher.dispatch({
         actionType: WorkoutConstants.UPDATE_DIRECTIONS,

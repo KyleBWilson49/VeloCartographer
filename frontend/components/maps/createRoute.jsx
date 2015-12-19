@@ -1,4 +1,5 @@
 var React = require('react'),
+    ElevationChart = require('./elevationChart'),
     CreateRouteMap = require('./createRouteMap');
 
 var CreateRoute = React.createClass({
@@ -12,6 +13,7 @@ var CreateRoute = React.createClass({
           route tools
         </div>
         <div className="route-info-pane">
+          <ElevationChart />
           route info
         </div>
       </div>
