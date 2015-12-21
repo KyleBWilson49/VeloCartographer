@@ -34,32 +34,46 @@ var ElevationChart = React.createClass({
 
     elevator.getElevationAlongPath({
       path: path,
-      samples: distance * 10
-    }, this.plotElevation);
+      samples: distance * 25
+    }, this.receiveElevation);
   },
 
-  plotElevation: function (elevations, status) {
+  receiveElevation: function (elevations, status) {
+    if (status === 'OK') {
+      this.plotElevation(elevations);
+      GoogleApiUtil.receiveElevation(elevations);
+    } else {
+      console.log("elevation error: " + status);
+    }
+  },
+
+  plotElevation: function (elevations) {
     var chartDiv = document.getElementById('elevation-chart');
 
-    if (status !== "OK") {
-      console.log("elevation plot error: " + status);
-    }
+    var dataArray = this.convertToArray(elevations);
 
+    var data = new google.visualization.arrayToDataTable(dataArray);
     var chart = new google.visualization.LineChart(chartDiv);
 
-    var data = new google.visualization.DataTable();
-
-    data.addColumn('string', 'Sample');
-    data.addColumn('number', 'Elevation');
-    for (var i = 0; i < elevations.length; i++) {
-      data.addRow(['', elevations[i].elevation]);
-    }
-
     chart.draw(data, {
-      height: 150,
+      height: 200,
       legend: 'none',
-      titleY: 'Elevation (m)'
+      titleY: 'Elevation (m)',
+      titleX: 'Distance (mi)'
     });
+  },
+
+  convertToArray: function (elevations) {
+    var data = [['Distance', 'Elevation']];
+    var distance = DirectionsStore.distance();
+    var increment = distance / elevations.length;
+    var reversedElevation = elevations.reverse();
+
+    reversedElevation.forEach(function (elevation, idx) {
+      data.push([idx * increment, elevation.elevation]);
+    });
+
+    return data;
   },
 
   _elevationChange: function () {

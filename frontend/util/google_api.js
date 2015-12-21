@@ -22,12 +22,17 @@ GoogleApiUtil = {
       key: window.GOOGLE_KEYS.GOOGLE_ROAD,
       path: lat + "," + lng
     }, function (data) {
+      
       callback(data);
     });
   },
 
   resetElevation: function () {
     ApiActions.resetElevation();
+  },
+
+  receiveElevation: function (elevations) {
+    ApiActions.reciveElevationData(elevations);
   }
 };
 
