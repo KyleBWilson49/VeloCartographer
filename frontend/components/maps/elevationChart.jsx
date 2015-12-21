@@ -1,37 +1,77 @@
 var React = require('react'),
-    LineChart = require('react-chartjs').Line;
+    ElevationStore = require('../../stores/elevation'),
+    DirectionsStore = require('../../stores/directions'),
+    GoogleApiUtil = require('../../util/google_api');
+
 
 var ElevationChart = React.createClass({
-  render: function () {
-    var chartData = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
-        }
-      ]
+  getInitialState: function () {
+    return {
+      elevation: ElevationStore.elevations()
     };
+  },
 
+  componentDidMount: function () {
+    this.directionsListener = DirectionsStore.addListener(this._fetchElevation);
+    this.elevationListener = ElevationStore.addListener(this._elevationChange);
+  },
+
+  componentWillUnmount: function () {
+    this.directionsListener.remove();
+    this.elevationListener.remove();
+    GoogleApiUtil.resetElevation();
+  },
+
+  _fetchElevation: function () {
+    var waypoints = DirectionsStore.directions().routes[0].overview_path;
+
+    this._getElevation(waypoints);
+  },
+
+  _getElevation: function (path) {
+    var distance = DirectionsStore.distance();
+    var elevator = new google.maps.ElevationService();
+
+    elevator.getElevationAlongPath({
+      path: path,
+      samples: distance * 10
+    }, this.plotElevation);
+  },
+
+  plotElevation: function (elevations, status) {
+    var chartDiv = document.getElementById('elevation-chart');
+
+    if (status !== "OK") {
+      console.log("elevation plot error: " + status);
+    }
+
+    var chart = new google.visualization.LineChart(chartDiv);
+
+    var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'Sample');
+    data.addColumn('number', 'Elevation');
+    for (var i = 0; i < elevations.length; i++) {
+      data.addRow(['', elevations[i].elevation]);
+    }
+
+    chart.draw(data, {
+      height: 150,
+      legend: 'none',
+      titleY: 'Elevation (m)'
+    });
+  },
+
+  _elevationChange: function () {
+    this.setState({
+      elevation: ElevationStore.elevations()
+    });
+  },
+
+  render: function () {
     return (
       <div id="elevation-chart">
-        <LineChart data={chartData} width="600" height="150" />
+        chart goes here
       </div>
     );
   }

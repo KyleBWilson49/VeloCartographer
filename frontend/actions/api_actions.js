@@ -65,6 +65,19 @@ ApiActions = {
       actionType: WorkoutConstants.REMOVE_FOLLOWING,
       following: following
     });
+  },
+
+  resetElevation: function () {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.RESET_CHART
+    });
+  },
+
+  reciveElevationData: function (response) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.RECIVE_ELEVATION_DATA,
+      data: response
+    });
   }
 };
 

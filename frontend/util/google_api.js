@@ -24,6 +24,10 @@ GoogleApiUtil = {
     }, function (data) {
       callback(data);
     });
+  },
+
+  resetElevation: function () {
+    ApiActions.resetElevation();
   }
 };
 

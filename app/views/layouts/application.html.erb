@@ -5,14 +5,24 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
   <script type="text/javascript">
     window.GOOGLE_KEYS = {
       GOOGLE_MAPS: "<%= ENV['GOOGLE_MAPS_API_KEY'] %>",
       GOOGLE_ROAD: "<%= ENV['GOOGLE_MAPS_ROAD_KEY'] %>"
     }
   </script>
+
   <script src="<%= "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}" %>"
-          charset="utf-8"></script>
+          charset="utf-8">
+  </script>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+  </script>
 </head>
 <body>
 
