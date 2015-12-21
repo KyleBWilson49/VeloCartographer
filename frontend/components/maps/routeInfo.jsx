@@ -1,13 +1,14 @@
 var React = require('react'),
     ElevationChart = require('./elevationChart'),
+    WorkoutForm = require('../workoutForm'),
     DirectionsStore = require('../../stores/directions'),
     ElevationStore = require('../../stores/elevation');
 
 var RouteInfo = React.createClass({
   getInitialState: function () {
     return {
-      distance: DirectionsStore.distance(),
-      gain: ElevationStore.gain()
+      distance: 0,
+      gain: 0
     };
   },
 
@@ -18,6 +19,7 @@ var RouteInfo = React.createClass({
 
   componentWillUnmount: function () {
     this.distanceListener.remove();
+    this.elevationListener.remove();
   },
 
   _updateDistance: function () {
@@ -34,6 +36,8 @@ var RouteInfo = React.createClass({
         Distance: {this.state.distance} miles
         <br/>
         Elevation Gain: {this.state.gain} meters
+        <br/>
+        <WorkoutForm />
       </div>
     );
   }

@@ -5,5 +5,29 @@
 .workout-form .form-group {
   float: left;
   margin: 0px;
-  margin-left: 5px
+  margin-left: 5px;
+}
+
+#workout-calories {
+  width: 60px;
+}
+
+#workout-distance {
+  width: 60px;
+}
+
+#workout-duration-hour {
+  width: 25px;
+}
+
+#workout-duration-minute {
+  width: 25px;
+}
+
+#workout-duration-second {
+  width: 25px;
+}
+
+.workout-form button {
+  float: left;
 }

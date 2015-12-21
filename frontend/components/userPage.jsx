@@ -1,5 +1,4 @@
 var React = require('react'),
-    WorkoutForm = require('./workoutForm'),
     WorkoutStore = require('../stores/workouts'),
     UserPageWorkoutItem = require('./userPageWorkoutItem'),
     PageInfoPane = require('./userPageInfoPane'),
@@ -57,7 +56,6 @@ var UserPage = React.createClass({
         <div>
           <PageInfoPane user={userPageId}/>
           <div className='user-workout-list'>
-            <WorkoutForm className='workout-form' />
             {workouts}
           </div>
         </div>

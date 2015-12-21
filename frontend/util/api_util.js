@@ -90,6 +90,17 @@ ApiUtil = {
         ApiActions.removeFollowing(follow);
       }
     });
+  },
+
+  createRoute: function (route) {
+    $.ajax({
+      url: "/api/routes",
+      method: "POST",
+      data: {route: route},
+      success: function (route) {
+        ApiActions.addRoute(route);
+      }
+    });
   }
 };
 

@@ -78,6 +78,13 @@ ApiActions = {
       actionType: WorkoutConstants.RECIVE_ELEVATION_DATA,
       data: response
     });
+  },
+
+  addRoute: function (route) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.ADD_ROUTE,
+      route: route
+    });
   }
 };
 

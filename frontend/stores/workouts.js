@@ -6,11 +6,16 @@ var _workouts = [];
 var WorkoutStore = new Store(AppDispatcher);
 
 WorkoutStore.all = function () {
-  return _workouts.slice();
+  if (_workouts) {
+    return _workouts.slice();
+  } else {
+    return [];
+  }
 };
 
 WorkoutStore.find = function (userId) {
   result = [];
+  if (!_workouts) { return []; }
   _workouts.forEach(function (workout) {
     if (workout.userId === userId) {
       result.push(workout);
