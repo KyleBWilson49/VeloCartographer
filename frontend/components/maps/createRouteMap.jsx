@@ -49,10 +49,27 @@ var CreateRouteMap = React.createClass({
       return;
     }
 
-    oldRoute = JSON.parse(OldRouteStore.route().route_path).reverse();
-    oldRoute.forEach(function (position) {
-      this.placeNewMarker(position[0], position[1]);
-    }.bind(this));
+    oldRoute = JSON.parse(OldRouteStore.route().route_path);
+
+    var markers = [];
+    var marker;
+
+    for (var i = 0; i < oldRoute.length; i++) {
+      var latLng = { lat: oldRoute[i][0], lng: oldRoute[i][1] };
+
+      if (i === 0) {
+        marker = this.placeEndMarker(latLng);
+      } else if (i === oldRoute.length - 1) {
+        marker = this.placeStartMarker(latLng);
+      } else {
+        marker = this.placeMiddleMarker(latLng);
+      }
+
+      markers.push(marker);
+    }
+
+    this.setState({ markers: markers }, this.getDirections);
+    this.directionsDisplay.setMap(this.map);
   },
 
   handleClick: function (e) {
@@ -175,6 +192,9 @@ var CreateRouteMap = React.createClass({
   },
 
   removeAllMarkers: function () {
+    this.directionsDisplay.setMap(null);
+    // ApiUtil.resetMapData();
+
     this.state.markers.forEach(function (marker) {
       marker.setMap(null);
     });

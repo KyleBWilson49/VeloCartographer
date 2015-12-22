@@ -118,6 +118,7 @@ var WorkoutForm = React.createClass({
       });
       ApiUtil.showOldRoute(route);
       this.newRoute = false;
+
     } else {
       this.setState({
         route_name: "",
