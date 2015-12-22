@@ -43,7 +43,12 @@ var CreateRouteMap = React.createClass({
   },
 
   showOldRoute: function () {
-    // this.removeAllMarkers();
+    this.removeAllMarkers();
+
+    if (Object.keys(OldRouteStore.route()).length === 0) {
+      return;
+    }
+
     oldRoute = JSON.parse(OldRouteStore.route().route_path).reverse();
     oldRoute.forEach(function (position) {
       this.placeNewMarker(position[0], position[1]);
@@ -171,7 +176,7 @@ var CreateRouteMap = React.createClass({
 
   removeAllMarkers: function () {
     this.state.markers.forEach(function (marker) {
-      maker.setMap(null);
+      marker.setMap(null);
     });
 
     this.setState({ markers: [] });

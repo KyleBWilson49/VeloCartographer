@@ -115,6 +115,10 @@ ApiUtil = {
 
   showOldRoute: function (route) {
     ApiActions.showOldRoute(route);
+  },
+
+  removeRoute: function () {
+    ApiActions.removeRoute();
   }
 };
 

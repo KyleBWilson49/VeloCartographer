@@ -84,7 +84,11 @@ var ElevationChart = React.createClass({
   render: function () {
     return (
       <div id="elevation-chart">
-        chart goes here
+        <ul>
+          <li>Click on the Map to add markers or choose an existing route</li>
+          <li>The elevation chart will apear here</li>
+          <li>When you are done Save the workout on the right</li>
+        </ul>
       </div>
     );
   }

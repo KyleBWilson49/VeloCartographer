@@ -14,11 +14,19 @@ OldRouteStore.__onDispatch = function (payload) {
     case WorkoutConstants.SHOW_OLD_ROUTE:
       updateOldRoute(payload.route);
       break;
+    case WorkoutConstants.REMOVE_ROUTE:
+      removeRoute();
+      break;
   }
 };
 
 var updateOldRoute = function (route) {
   _oldRoute = route;
+  OldRouteStore.__emitChange();
+};
+
+var removeRoute = function () {
+  _oldRoute = {};
   OldRouteStore.__emitChange();
 };
 

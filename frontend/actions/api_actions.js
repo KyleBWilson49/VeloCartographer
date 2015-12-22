@@ -99,6 +99,12 @@ ApiActions = {
       actionType: WorkoutConstants.SHOW_OLD_ROUTE,
       route: route
     });
+  },
+
+  removeRoute: function () {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.REMOVE_ROUTE
+    });
   }
 };
 

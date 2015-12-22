@@ -123,6 +123,7 @@ var WorkoutForm = React.createClass({
         route_name: "",
         route_description: ""
       });
+      ApiUtil.removeRoute();
       this.newRoute = true;
     }
   },
