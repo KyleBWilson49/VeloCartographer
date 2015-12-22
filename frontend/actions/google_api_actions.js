@@ -9,6 +9,13 @@ GoogleApiActions = {
         directions: result
       });
     }
+  },
+
+  storeMarkers: function (markers) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.STORE_MARKERS,
+      markers: markers
+    });
   }
 };
 

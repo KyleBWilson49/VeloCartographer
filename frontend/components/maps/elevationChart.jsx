@@ -19,7 +19,6 @@ var ElevationChart = React.createClass({
   componentWillUnmount: function () {
     this.directionsListener.remove();
     this.elevationListener.remove();
-    GoogleApiUtil.resetElevation();
   },
 
   _fetchElevation: function () {

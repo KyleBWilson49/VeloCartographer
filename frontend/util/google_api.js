@@ -22,17 +22,21 @@ GoogleApiUtil = {
       key: window.GOOGLE_KEYS.GOOGLE_ROAD,
       path: lat + "," + lng
     }, function (data) {
-      
+
       callback(data);
     });
   },
 
   resetElevation: function () {
-    ApiActions.resetElevation();
+    GoogleApiActions.resetElevation();
   },
 
   receiveElevation: function (elevations) {
     ApiActions.reciveElevationData(elevations);
+  },
+
+  storeMarkers: function (markers) {
+    GoogleApiActions.storeMarkers(markers);
   }
 };
 

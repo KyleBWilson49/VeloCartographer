@@ -3,13 +3,18 @@ class Api::RoutesController < ApplicationController
     @route = Route.new(route_params)
     @route.user_id = current_user.id
 
-    @route.save
+    if @route.save
+      render :index
+    else
+      debugger
+    end
   end
 
   def show
   end
 
   def index
+    @routes = Route.all
   end
 
   private

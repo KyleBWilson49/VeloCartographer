@@ -101,6 +101,8 @@ var CreateRouteMap = React.createClass({
     if (markers.length > 1) {
       this.getDirections();
     }
+
+    GoogleApiUtil.storeMarkers(this.state.markers);
   },
 
   placeStartMarker: function (latLng) {

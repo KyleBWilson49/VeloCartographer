@@ -42,8 +42,10 @@ var resetWorkouts = function (workouts) {
 };
 
 var addNewWorkout = function (workout) {
-  _workouts.push(workout);
-  WorkoutStore.__emitChange();
+  if (_workouts) {
+    _workouts.push(workout);
+    WorkoutStore.__emitChange();
+  }
 };
 
 module.exports = WorkoutStore;

@@ -14,11 +14,19 @@ RoutesStore.__onDispatch = function (payload) {
     case WorkoutConstants.ADD_ROUTES:
       addRoute(payload.route);
       break;
+    case WorkoutConstants.RECIVE_SAVED_ROUTES:
+      updateRoutes(payload.routes);
+      break;
   }
 };
 
 var addRoute = function (route) {
   _routes.push(route);
+  RoutesStore.__emitChange();
+};
+
+var updateRoutes = function (routes) {
+  _routes = routes;
   RoutesStore.__emitChange();
 };
 

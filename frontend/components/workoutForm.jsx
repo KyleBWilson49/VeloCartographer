@@ -1,12 +1,15 @@
 var React = require('react'),
     ApiUtil = require('../util/api_util'),
     DirectionsStore = require('../stores/directions'),
+    RoutesStore = require('../stores/routes'),
     CurrentUserStore = require('../stores/currentUser'),
     ElevationStore = require('../stores/elevation'),
-    LinkedStateMixin = require('react-addons-linked-state-mixin');
+    LinkedStateMixin = require('react-addons-linked-state-mixin'),
+    History = require('react-router').History;
+
 
 var WorkoutForm = React.createClass({
-  mixins: [LinkedStateMixin],
+  mixins: [LinkedStateMixin, History],
 
   blankAttrs: {
     title: '',
@@ -16,12 +19,30 @@ var WorkoutForm = React.createClass({
     durationMinute: '',
     durationSecond: '',
     calories_burned: '',
-    route_title: '',
+    route_name: '',
     route_description: '',
+    routes: null
   },
 
   getInitialState: function () {
     return this.blankAttrs;
+  },
+
+  componentDidMount: function () {
+    ApiUtil.fetchRoutes();
+    this.routeListener = RoutesStore.addListener(this._updateRoutes);
+  },
+
+  componentWillUnmount: function () {
+    this.routeListener.remove();
+  },
+
+  _updateRoutes: function () {
+    if (RoutesStore.routes()[0]) {
+      this.setState({
+        routes: RoutesStore.routes()
+      });
+    }
   },
 
   createWorkout: function (event) {
@@ -38,7 +59,7 @@ var WorkoutForm = React.createClass({
         durationInSeconds += (parseInt(this.state[key]) * 60);
       } else if (key === "durationSecond") {
         durationInSeconds += (parseInt(this.state[key]));
-      } else if (key === 'route_title') {
+      } else if (key === 'route_name') {
         route[key] = this.state[key];
       } else if (key === 'route_description') {
         route[key] = this.state[key];
@@ -50,35 +71,65 @@ var WorkoutForm = React.createClass({
     this.createRoute(route);
 
     workout.duration = durationInSeconds;
-    workout.distance = DirectionsStore.distance();
+    workout.distance = DirectionsStore.distance().toFixed(2);
+    workout.elevation_gain = ElevationStore.gain().toFixed(0);
     workout.calories_burned = this.calculateCalories();
 
     ApiUtil.createWorkout(workout, function () {
       ApiUtil.fetchWorkouts();
     });
 
+    this.history.pushState(null, "/user/" + CurrentUserStore.user().id);
     this.setState(this.blankAttrs);
   },
 
   createRoute: function (route) {
     route.elevation_gain = ElevationStore.gain().toFixed(0);
     route.distance = DirectionsStore.distance().toFixed(2);
-    route.route_path = DirectionsStore.directions();
+    var path = DirectionsStore.markers().map(function (marker) {
+      return [marker.position.lat(), marker.position.lng()];
+    });
+    route.route_path = JSON.stringify(path);
 
-    debugger
-    // ApiUtil.createRoute(route);
+    ApiUtil.createRoute(route);
   },
 
   calculateCalories: function () {
-    var speed = DirectionsStore.distance() / (this.state.durationHour + (this.state.durationMinute / 60));
-    var weight = 160;
-    var calories = ((speed * weight * 0.005) + 0.0083 * (speed)) * 7.2;
-    debugger
+    // var speed = DirectionsStore.distance() / (parseInt(this.state.durationHour) + (parseInt(this.state.durationMinute) / 60));
+    // var weight = CurrentUserStore.user().weight;
+    // var rise = ElevationStore.gain();
+    var distance = DirectionsStore.distance();
+    var calories = 40 * distance;
     return calories;
   },
 
+  selectRoute: function (e) {
+    var routeString = e.currentTarget.selectedOptions[0].dataset.route;
+
+    if (routeString) {
+      var route = JSON.parse(routeString);
+      this.setState({
+        route_name: route.route_name,
+        route_description: route.route_description
+      });
+
+    } else {
+      this.setState({
+        route_name: "",
+        route_description: ""
+      });
+    }
+  },
+
   render: function () {
-    // debugger
+
+    var routes;
+    if (this.state.routes) {
+      routes = RoutesStore.routes().map(function (route, idx) {
+        return <option key={idx} data-route={JSON.stringify(route)}>{route.route_name}</option>;
+      });
+    }
+
     return (
       <form role='form' className="workout-form" onSubmit={this.createWorkout}>
         <div className="new-route">
@@ -88,15 +139,16 @@ var WorkoutForm = React.createClass({
             <br/>
             <input type="text"
                    id="route-title"
-                   valueLink={this.linkState('route_title')}
+                   valueLink={this.linkState('route_name')}
             />
           </div>
 
           <div className="form-group">
             <label htmlFor='route-title-drop-down'>Existing Routes</label>
             <br/>
-            <select id="route-title-drop-down">
+            <select id="route-title-drop-down" onChange={this.selectRoute}>
               <option></option>
+              {routes}
             </select>
           </div>
 

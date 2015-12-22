@@ -85,6 +85,13 @@ ApiActions = {
       actionType: WorkoutConstants.ADD_ROUTE,
       route: route
     });
+  },
+
+  fetchedRoutes: function (routes) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.RECIVE_SAVED_ROUTES,
+      routes: routes
+    });
   }
 };
 

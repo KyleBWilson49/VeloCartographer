@@ -101,6 +101,16 @@ ApiUtil = {
         ApiActions.addRoute(route);
       }
     });
+  },
+
+  fetchRoutes: function () {
+    $.ajax({
+      url: "/api/routes",
+      method: "GET",
+      success: function (routes) {
+        ApiActions.fetchedRoutes(routes);
+      }
+    });
   }
 };
 
