@@ -29,7 +29,6 @@ var CreateRouteMap = React.createClass({
       preserveViewport: true
     };
     this.directionsDisplay = new google.maps.DirectionsRenderer(displayOptions);
-    this.directionsDisplay.setMap(this.map);
 
     this.clickListener = google.maps.event.addListener(this.map, 'click', this.handleClick);
     this.directionsListener = DirectionStore.addListener(this.updateDirections);
@@ -69,7 +68,6 @@ var CreateRouteMap = React.createClass({
     }
 
     this.setState({ markers: markers }, this.getDirections);
-    this.directionsDisplay.setMap(this.map);
   },
 
   handleClick: function (e) {
@@ -134,8 +132,6 @@ var CreateRouteMap = React.createClass({
     if (markers.length > 1) {
       this.getDirections();
     }
-
-    GoogleApiUtil.storeMarkers(this.state.markers);
   },
 
   placeStartMarker: function (latLng) {
@@ -174,6 +170,8 @@ var CreateRouteMap = React.createClass({
     waypoints.shift();
 
     GoogleApiUtil.getDirections(start, end, waypoints);
+    this.directionsDisplay.setMap(this.map);
+    GoogleApiUtil.storeMarkers(this.state.markers);
   },
 
   createWaypoints: function() {

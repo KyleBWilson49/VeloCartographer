@@ -13,6 +13,7 @@
 #  title           :string           not null
 #  description     :text
 #  duration        :integer          not null
+#  start_position  :string           not null
 #
 
 require 'test_helper'

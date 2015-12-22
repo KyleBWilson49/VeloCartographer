@@ -78,6 +78,9 @@ var WorkoutForm = React.createClass({
     workout.distance = DirectionsStore.distance().toFixed(2);
     workout.elevation_gain = ElevationStore.gain().toFixed(0);
     workout.calories_burned = this.calculateCalories();
+    var markers = DirectionsStore.markers();
+    var start_marker = markers[markers.length - 1].position;
+    workout.start_position = start_marker.lat() + "," + start_marker.lng();
 
     ApiUtil.createWorkout(workout, function () {
       ApiUtil.fetchWorkouts();
@@ -154,7 +157,7 @@ var WorkoutForm = React.createClass({
             <label htmlFor='route-title-drop-down'>Existing Routes</label>
             <br/>
             <select id="route-title-drop-down" onChange={this.selectRoute}>
-              <option></option>
+              <option>New Route</option>
               {routes}
             </select>
           </div>

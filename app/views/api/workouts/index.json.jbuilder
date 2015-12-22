@@ -8,4 +8,5 @@ json.array! @workouts do |workout|
   json.title workout.title
   json.description workout.description
   json.username workout.user.username
+  json.start_position workout.start_position
 end
