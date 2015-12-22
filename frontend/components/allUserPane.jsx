@@ -70,7 +70,7 @@ var AllUserPane = React.createClass({
                   className="find-user"
                   data-userid={user.id}
                   onClick={this.goToUsersPage}>{user.username}</div>;
-    });
+    }.bind(this));
     return friends;
   },
 

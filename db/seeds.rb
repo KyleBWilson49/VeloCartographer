@@ -226,3 +226,111 @@ Workout.create({
   duration: 2720,
   start_position: "37.77355570686374,-122.44089453942149"
 })
+
+Workout.create({
+  user_id: 2,
+  route_id: 3,
+  distance: 9.39,
+  calories_burned: 375,
+  elevation_gain: 226,
+  title: "Easy Sunday Ride",
+  description: "through the park to the beach",
+  duration: 2720,
+  start_position: "37.77355570686374,-122.44089453942149"
+})
+
+Workout.create({
+  user_id: 3,
+  route_id: 3,
+  distance: 9.39,
+  calories_burned: 375,
+  elevation_gain: 226,
+  title: "Easy Sunday Ride",
+  description: "through the park to the beach",
+  duration: 2720,
+  start_position: "37.77355570686374,-122.44089453942149"
+})
+
+Workout.create({
+  user_id: 4,
+  route_id: 3,
+  distance: 61.14,
+  calories_burned: 2445,
+  elevation_gain: 70,
+  title: "Long Ass Ride",
+  description: "Very very tired",
+  duration: 12025,
+  start_position: "37.77220164172067,-122.44488406162452"
+})
+
+Workout.create({
+  user_id: 5,
+  route_id: 3,
+  distance: 9.39,
+  calories_burned: 375,
+  elevation_gain: 226,
+  title: "Easy Sunday Ride",
+  description: "through the park to the beach",
+  duration: 2720,
+  start_position: "37.77355570686374,-122.44089453942149"
+})
+
+Workout.create({
+  user_id: 6,
+  route_id: 3,
+  distance: 6.53,
+  calories_burned: 261,
+  elevation_gain: 70,
+  title: "lunch ride",
+  description: "fast and fun",
+  duration: 1512,
+  start_position: "37.78152654908751,-122.41122288407479"
+})
+
+Workout.create({
+  user_id: 7,
+  route_id: 3,
+  distance: 9.39,
+  calories_burned: 375,
+  elevation_gain: 226,
+  title: "Easy Sunday Ride",
+  description: "through the park to the beach",
+  duration: 2720,
+  start_position: "37.77355570686374,-122.44089453942149"
+})
+
+Workout.create({
+  user_id: 8,
+  route_id: 3,
+  distance: 9.39,
+  calories_burned: 375,
+  elevation_gain: 226,
+  title: "Easy Sunday Ride",
+  description: "through the park to the beach",
+  duration: 2720,
+  start_position: "37.77355570686374,-122.44089453942149"
+})
+
+Workout.create({
+  user_id: 9,
+  route_id: 3,
+  distance: 9.39,
+  calories_burned: 375,
+  elevation_gain: 226,
+  title: "Easy Sunday Ride",
+  description: "through the park to the beach",
+  duration: 2720,
+  start_position: "37.77355570686374,-122.44089453942149"
+})
+
+Workout.create({
+  user_id: 10,
+  route_id: 3,
+  distance: 9.45,
+  calories_burned: 378,
+  elevation_gain: 307,
+  title: "Evening Cruise",
+  description: "easy ride",
+  duration: 2160,
+  start_position: "37.78099918190455,-122.41188677655225"
+})
