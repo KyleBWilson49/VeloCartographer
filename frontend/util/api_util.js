@@ -119,6 +119,16 @@ ApiUtil = {
 
   removeRoute: function () {
     ApiActions.removeRoute();
+  },
+
+  fetchAllUsers: function () {
+    $.ajax({
+      url: "/api/users",
+      method: "GET",
+      success: function (users) {
+        ApiActions.reciveAllUsers(users);
+      }
+    });
   }
 };
 

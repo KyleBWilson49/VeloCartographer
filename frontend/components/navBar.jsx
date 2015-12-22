@@ -64,7 +64,7 @@ var NavBar = React.createClass({
           <nav onClick={this._redirectToUserProfile}>Profile</nav>
           <nav onClick={this._redirectToUserPage}>User Page</nav>
           <nav onClick={this._redirectToFeed}>Feed</nav>
-          <nav onClick={this._redirectToCreateRoute}>Create Route</nav>
+          <nav onClick={this._redirectToCreateRoute}>Log Workout</nav>
         </div>
       );
     }

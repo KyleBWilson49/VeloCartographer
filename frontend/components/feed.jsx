@@ -59,8 +59,10 @@ var Feed = React.createClass({
         <div className="feed">
           {workouts}
         </div>
-        <InfoPane />
-        <AllUserPane />
+        <div className="feed-side-bar">
+          <InfoPane />
+          <AllUserPane />
+        </div>
       </div>
     );
   }

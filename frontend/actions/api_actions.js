@@ -105,6 +105,13 @@ ApiActions = {
     AppDispatcher.dispatch({
       actionType: WorkoutConstants.REMOVE_ROUTE
     });
+  },
+
+  reciveAllUsers: function (users) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.RECIVE_ALL_USERS,
+      users: users
+    });
   }
 };
 
