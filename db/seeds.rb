@@ -334,3 +334,15 @@ Workout.create({
   duration: 2160,
   start_position: "37.78099918190455,-122.41188677655225"
 })
+
+Workout.create({
+  user_id: 2,
+  route_id: 3,
+  distance: 9.45,
+  calories_burned: 378,
+  elevation_gain: 307,
+  title: "Evening Cruise",
+  description: "easy ride",
+  duration: 2160,
+  start_position: "37.78099918190455,-122.41188677655225"
+})
