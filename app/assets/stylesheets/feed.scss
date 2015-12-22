@@ -18,11 +18,15 @@
   width: 300px;
   height: 600px;
   margin: 20px;
-  float: right;
+  // float: right;
   border: 1px solid #ccc;
   border-radius: 10px;
   background: #fff;
   background-color: rgba(255, 255, 255, .7);
+}
+
+.user-page .user-info {
+  float: right;
 }
 
 .feed-item {
@@ -70,6 +74,6 @@
   border: 1px solid black;
 }
 
-// .feed-side-bar {
-//   float: left;
-// }
+.feed-side-bar {
+  float: right;
+}

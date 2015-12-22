@@ -17,7 +17,7 @@ module.exports = React.createClass({
 
     var imageUrl = "https://maps.googleapis.com/maps/api/staticmap?center=" +
                    workout.start_position +
-                   "&size=200x200&zoom=13&markers=color:green%7Clabel:S%7C" +
+                   "&size=200x200&zoom=15&markers=color:green%7Clabel:S%7C" +
                    workout.start_position +
                    "&key=" +
                    window.GOOGLE_KEYS.GOOGLE_MAPS;

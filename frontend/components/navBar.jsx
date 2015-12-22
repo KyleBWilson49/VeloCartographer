@@ -60,7 +60,7 @@ var NavBar = React.createClass({
       buttons = (
         <div className='clear-fix' id='nav-bar'>
           <h1 className='title'>Velo Cartographer</h1>
-          <nav onClick={this._logOut}>Log Out</nav>
+          <nav onClick={this._logOut}><a href="/session/new">Log Out</a></nav>
           <nav onClick={this._redirectToUserProfile}>Profile</nav>
           <nav onClick={this._redirectToUserPage}>User Page</nav>
           <nav onClick={this._redirectToFeed}>Feed</nav>
