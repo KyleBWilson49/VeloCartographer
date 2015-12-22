@@ -1,7 +1,8 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
     GoogleApiUtil = require('../../util/google_api'),
-    DirectionStore = require('../../stores/directions');
+    DirectionStore = require('../../stores/directions'),
+    OldRouteStore = require('../../stores/oldRoute');
 
 var CreateRouteMap = React.createClass({
   getInitialState: function () {
@@ -32,11 +33,21 @@ var CreateRouteMap = React.createClass({
 
     this.clickListener = google.maps.event.addListener(this.map, 'click', this.handleClick);
     this.directionsListener = DirectionStore.addListener(this.updateDirections);
+    this.oldRouteListener = OldRouteStore.addListener(this.showOldRoute);
   },
 
   componentWillUnmount: function () {
     this.clickListener.remove();
     this.directionsListener.remove();
+    this.oldRouteListener.remove();
+  },
+
+  showOldRoute: function () {
+    // this.removeAllMarkers();
+    oldRoute = JSON.parse(OldRouteStore.route().route_path).reverse();
+    oldRoute.forEach(function (position) {
+      this.placeNewMarker(position[0], position[1]);
+    }.bind(this));
   },
 
   handleClick: function (e) {
@@ -156,6 +167,14 @@ var CreateRouteMap = React.createClass({
       });
     });
     return waypoints;
+  },
+
+  removeAllMarkers: function () {
+    this.state.markers.forEach(function (marker) {
+      maker.setMap(null);
+    });
+
+    this.setState({ markers: [] });
   },
 
   render: function () {

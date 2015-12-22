@@ -111,6 +111,10 @@ ApiUtil = {
         ApiActions.fetchedRoutes(routes);
       }
     });
+  },
+
+  showOldRoute: function (route) {
+    ApiActions.showOldRoute(route);
   }
 };
 

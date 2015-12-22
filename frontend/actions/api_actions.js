@@ -92,6 +92,13 @@ ApiActions = {
       actionType: WorkoutConstants.RECIVE_SAVED_ROUTES,
       routes: routes
     });
+  },
+
+  showOldRoute: function (route) {
+    AppDispatcher.dispatch({
+      actionType: WorkoutConstants.SHOW_OLD_ROUTE,
+      route: route
+    });
   }
 };
 

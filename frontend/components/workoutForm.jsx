@@ -4,6 +4,7 @@ var React = require('react'),
     RoutesStore = require('../stores/routes'),
     CurrentUserStore = require('../stores/currentUser'),
     ElevationStore = require('../stores/elevation'),
+    GoogleMap = require('./maps/createRouteMap'),
     LinkedStateMixin = require('react-addons-linked-state-mixin'),
     History = require('react-router').History;
 
@@ -25,6 +26,7 @@ var WorkoutForm = React.createClass({
   },
 
   getInitialState: function () {
+    this.newRoute = true;
     return this.blankAttrs;
   },
 
@@ -68,7 +70,9 @@ var WorkoutForm = React.createClass({
       }
     }.bind(this));
 
-    this.createRoute(route);
+    if (this.newRoute) {
+      this.createRoute(route);
+    }
 
     workout.duration = durationInSeconds;
     workout.distance = DirectionsStore.distance().toFixed(2);
@@ -112,17 +116,18 @@ var WorkoutForm = React.createClass({
         route_name: route.route_name,
         route_description: route.route_description
       });
-
+      ApiUtil.showOldRoute(route);
+      this.newRoute = false;
     } else {
       this.setState({
         route_name: "",
         route_description: ""
       });
+      this.newRoute = true;
     }
   },
 
   render: function () {
-
     var routes;
     if (this.state.routes) {
       routes = RoutesStore.routes().map(function (route, idx) {
