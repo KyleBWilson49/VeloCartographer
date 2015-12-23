@@ -50,13 +50,33 @@ var InfoPane = React.createClass({
       var duration = hours + ':' + minutes + ':' + seconds;
 
       return (
-        <div className="user-info">
-          <p>{currentUser.username}</p>
-          <p>Lifetime Stats</p>
-          <p>Duration: {duration}</p>
-          <p>Distance: {currentUserTotals.totalDistance}</p>
-          <p>Calories: {currentUserTotals.totalCalories}</p>
-          <p>Workouts: {currentUserTotals.workoutCount}</p>
+        <div className="user-info container">
+          <h2>{currentUser.username}</h2>
+          <h4>Lifetime Stats</h4>
+          <table className="table">
+            <tbody>
+              <tr>
+                <td>Duration</td>
+                <td>{duration}</td>
+              </tr>
+              <tr>
+                <td>Distance</td>
+                <td>{currentUserTotals.totalDistance}</td>
+              </tr>
+              <tr>
+                <td>Calories</td>
+                <td>{currentUserTotals.totalCalories}</td>
+              </tr>
+              <tr>
+                <td>Workouts</td>
+                <td>{currentUserTotals.workoutCount}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       );
     } else {

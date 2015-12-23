@@ -16,6 +16,10 @@
  *= require workoutForm
  *= require profile
  *= require createRoute
+ *= require users
+ *= require createUser
+ *= require sessions
+ *= require signIn
  *= require_tree .
  */
 
@@ -53,36 +57,37 @@ body {
   position: fixed;
   width: 100%;
   margin: auto;
-  background: #06f;
+  background: #666633;
   height: 55px;
-  padding-top: 3px;
+  z-index: 100;
+  border-bottom: 1px solid #222211;
 }
 
 nav {
   float: right;
   width: 120px;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-size: 22px;
   margin: auto;
   color: #fff;
-  font-family: cursive;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 nav a {
   color: #fff;
 }
 
-nav a:hover {
+nav:hover a {
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 
 .title {
   margin: 0px;
-  font-family: cursive;
-  padding: 2px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding: 5px;
   padding-left: 25px;
 }
 
@@ -92,5 +97,6 @@ nav a:hover {
 }
 
 nav:hover {
-  background: #6af;
+  background: #d4d4aa;
+  color: #000;
 }

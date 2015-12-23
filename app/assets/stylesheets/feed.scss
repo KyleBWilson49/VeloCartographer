@@ -8,21 +8,19 @@
   width: 800px;
   float: left;
   margin-left: 20px;
-  border: 1px solid #ccc;
   margin-top: 20px;
   border-radius: 10px;
   background: #fff;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .user-info {
   width: 300px;
-  height: 600px;
+  height: 270px;
   margin: 20px;
-  border: 1px solid #ccc;
   border-radius: 10px;
-  background: #fff;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(0, 0, 0, .5);
+  color: #fff;
 }
 
 .user-page .user-info {
@@ -30,14 +28,18 @@
 }
 
 .feed-item {
-  border: 1px solid #ccc;
   width: 750px;
   height: 250px;
   border-radius: 10px;
   margin: auto;
   margin-top: 20px;
-  background: #fff;
-  background-color: rgba(255, 255, 255, 1);
+  // background-color: rgba(229, 229, 204, 1);
+  background-color: rgba(238, 238, 221, 1);
+}
+
+.feed-item:hover {
+  border: 1px solid #33331a;
+  background-color: rgba(221, 221, 187, 1);
 }
 
 #feed-item-info {
@@ -49,9 +51,21 @@
 
 #feed-item-info .feed-user-info {
   float: left;
-  border: 1px solid black;
-  width: 150px;
+  width: 490px;
+  font-size: 20px;
   margin: 0px;
+  margin-bottom: 10px;
+}
+
+#feed-item-info .feed-user-info #title {
+  width: 350px;
+  margin: 0px
+}
+
+#feed-item-info .feed-user-info h3 {
+  float: right;
+  margin: 0px;
+  margin-right: 10px
 }
 
 .feed-mini-map {
@@ -67,12 +81,17 @@
 
 #feed-item-info #title {
   font-weight: bold;
+  display: inline;
 }
 
 .feed-workout-details {
   float: left;
-  padding: 10px;
-  border: 1px solid black;
+  width: 500px;
+  height: 140px;
+}
+
+#workout-details-th {
+  padding: 2px;
 }
 
 .feed-side-bar {

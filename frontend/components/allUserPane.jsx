@@ -87,11 +87,15 @@ var AllUserPane = React.createClass({
     var friends = this.friends();
 
     return (
-      <div className="all-users-pane">
-        <h4>Find Users</h4>
-        {findUsers}
-        <h4>Friends</h4>
-        {friends}
+      <div className="all-users-pane clear-fix">
+        <div className="users-you-may-know clear-fix">
+          <h3>Users You May Know</h3>
+          {findUsers}
+        </div>
+        <div className="friends-list clear-fix">
+          <h3>Friends</h3>
+          {friends}
+        </div>
       </div>
     );
   }
