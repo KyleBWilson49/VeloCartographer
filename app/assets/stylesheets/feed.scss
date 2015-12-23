@@ -27,14 +27,32 @@
   float: right;
 }
 
+.user-page .user-info button {
+  float: right;
+  margin-top: 20px;
+  background: #aaaa55;
+  color: #222211;
+}
+
+.user-page .user-info h4 {
+  width: 200px;
+}
+
+.user-page .user-info h2 {
+  width: 190px;
+  float: left;
+}
+
 .feed-item {
   width: 750px;
   height: 250px;
   border-radius: 10px;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   // background-color: rgba(229, 229, 204, 1);
   background-color: rgba(238, 238, 221, 1);
+  box-shadow: 5px 5px 3px black;
 }
 
 .feed-item:hover {
@@ -65,7 +83,12 @@
 #feed-item-info .feed-user-info h3 {
   float: right;
   margin: 0px;
-  margin-right: 10px
+  margin-right: 10px;
+  padding: 4px;
+}
+
+#feed-item-info .feed-user-info .fa {
+  font-size: 20px;
 }
 
 .feed-mini-map {

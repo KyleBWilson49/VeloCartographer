@@ -29,7 +29,7 @@ module.exports = React.createClass({
       <div id='feed-item-info' className='clear-fix'>
         <div className='feed-user-info'>
           <h2 id='title'>{workout.title}</h2>
-          <h3>{workout.username}</h3>
+          <h3><i className="fa fa-user"></i>  {workout.username}</h3>
         </div>
         <div className='feed-workout-details container clear-fix'>
           <table className="table">

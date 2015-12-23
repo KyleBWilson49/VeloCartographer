@@ -2,16 +2,16 @@
   width: 500px;
   margin: auto;
   margin-top: 20px;
-  background: #fff;
+  background-color: rgba(238, 238, 221, 1);
   border-radius: 10px;
   height: 300px;
   font-family: cursive;
   margin-top: 150px;
 }
 
-h1 {
+.user-profile h1 {
+  padding-top: 15px;
   text-align: center;
-  padding: 0px;
 }
 
 .edit-user-form {
@@ -27,4 +27,15 @@ h1 {
 
 .user-profile .btn-primary {
   margin-left: 0px;
+}
+
+.user-profile button {
+  border: 1px solid black;
+  background: #aaaa55;
+  color: #222211;
+}
+
+.user-profile button:hover {
+  background: #222211;
+  color: #ddddbb;
 }

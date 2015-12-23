@@ -14,6 +14,8 @@ module.exports = React.createClass({
     var minutes = Math.floor(workout.duration % 3600 / 60);
     var seconds = workout.duration % 60;
     var duration = hours + ':' + minutes + ':' + seconds;
+    var decimalTime = hours + (minutes / 60) + (seconds / 3600);
+    var avgSpeed = (workout.distance / decimalTime).toFixed(1);
 
     var imageUrl = "https://maps.googleapis.com/maps/api/staticmap?center=" +
                    workout.start_position +
@@ -26,15 +28,37 @@ module.exports = React.createClass({
     <div className="feed-item">
       <div id='feed-item-info' className='clear-fix'>
         <div className='feed-user-info'>
-          <p id='title'>{workout.title}</p>
-          <p>Username: {workout.username}</p>
+          <h2 id='title'>{workout.title}</h2>
         </div>
-        <div className='feed-workout-details'>
-          <p>distance: {workout.distance}</p>
-          <p>duration: {duration}</p>
-          <p>Calories: {workout.calories}</p>
-          <p>Elevation Diff: {workout.elevation_gain}</p>
-          <p>Description: {workout.description}</p>
+        <div className='feed-workout-details container clear-fix'>
+          <table className="table">
+            <tbody>
+              <tr >
+                <td id="workout-details-th">Distance</td>
+                <td id="workout-details-th">{workout.distance}</td>
+              </tr>
+              <tr>
+                <td id="workout-details-th">Duration</td>
+                <td id="workout-details-th">{duration}</td>
+              </tr>
+              <tr>
+                <td id="workout-details-th">Average Speed</td>
+                <td id="workout-details-th">{avgSpeed}</td>
+              </tr>
+              <tr>
+                <td id="workout-details-th">Calories</td>
+                <td id="workout-details-th">{workout.calories}</td>
+              </tr>
+              <tr>
+                <td id="workout-details-th">Elevation Gain</td>
+                <td id="workout-details-th">{workout.elevation_gain}</td>
+              </tr>
+              <tr>
+                <td id="workout-details-th">Description</td>
+                <td id="workout-details-th">{workout.description}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div className='feed-mini-map'>

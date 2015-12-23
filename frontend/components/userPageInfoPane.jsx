@@ -79,14 +79,35 @@ var PageInfoPane = React.createClass({
       }
 
       return (
-        <div className="user-info">
+        <div className="user-info container">
+          <h2>{UserInfo.user.username}</h2>
           {button}
-          <p>{UserInfo.user.username}</p>
-          <p>Lifetime Stats</p>
-          <p>Duration: {duration}</p>
-          <p>Distance: {UserTotals.totalDistance}</p>
-          <p>Calories: {UserTotals.totalCalories}</p>
-          <p>Workouts: {UserTotals.workoutCount}</p>
+          <h4>Lifetime Stats</h4>
+
+          <table className="table">
+            <tbody>
+              <tr>
+                <td>Duration</td>
+                <td>{duration}</td>
+              </tr>
+              <tr>
+                <td>Distance</td>
+                <td>{UserTotals.totalDistance}</td>
+              </tr>
+              <tr>
+                <td>Calories</td>
+                <td>{UserTotals.totalCalories}</td>
+              </tr>
+              <tr>
+                <td>Workouts</td>
+                <td>{UserTotals.workoutCount}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       );
     } else {

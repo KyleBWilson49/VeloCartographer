@@ -61,19 +61,6 @@ var UserProfile = React.createClass({
 
           <br/>
 
-          <label htmlFor="user_gender">Gender</label>
-          <br/>
-          <input type="radio"
-                 name="user[gender]"
-                 value="M"
-                 id="user_gender"/>Male
-          <input type="radio"
-                 name="user[gender]"
-                 value="F"
-                 id="user_gender"/>Female
-
-        <br/>
-
           <label htmlFor="birthdate">Birthdate</label>
           <br/>
           <input type="date"
