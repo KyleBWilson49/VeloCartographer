@@ -1,21 +1,71 @@
-.new-user-form {
-  width: 400px;
-  height: 480px;
+.create-user-box {
+  width: 440px;
+  height: 460px;
   margin: auto;
-  background: #fff;
-  border-radius: 10px;
   margin-top: 100px;
+  padding-top: 1px;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  font-family: 'Open Sans Condensed', sans-serif;  font-size: 16px;
 }
 
-.new-user-form .btn-primary {
+.create-user-form {
+  width: 400px;
+  height: 420px;
+  background-color: rgba(238, 238, 221, 1);
+  border-radius: 10px;
+  margin: 20px;
+  vertical-align: middle;
+}
+
+.create-user-form .form-group {
+  margin-bottom: 0px;
+}
+
+.create-user-form .btn-primary {
+  background: #444422;
+  color: white;
+  margin-left: 150px;
+  border: 0px;
+}
+
+.create-user-form .btn-primary:hover {
+  background: #99994d;
+  color: black;
+}
+
+.create-user-form h1 {
+  margin-top: 20px;
   margin-left: 140px;
 }
 
-.new-user-form h1 {
-  padding-top: 10px;
-}
-
-.new-user-form a {
+.create-user-form a {
   margin-left: 180px;
   padding-bottom: 10px;
+  color: black;
+}
+
+.create-user-form a:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.create-user-form #user_username {
+  margin-left: 5px;
+}
+
+.create-user-form #user_password {
+  margin-left: 7px;
+}
+
+.create-user-form #user_weight {
+  margin-left: 22px;
+}
+
+.create-user-form #user_birthdate {
+  margin-left: 10px;
+}
+
+.create-user-form #user_gender {
+  margin-left: 21px;
 }

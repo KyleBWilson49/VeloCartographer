@@ -1,59 +1,65 @@
+<div class='create-user-box'>
+  <div class='create-user-form'>
+    <form role="form" action="<%= api_users_url %>" method="post">
+      <h1>New User!</h1>
+      <input type="hidden"
+             name="authenticity_token"
+             value="<%= form_authenticity_token %>">
 
-<form role="form" class="new-user-form" action="<%= api_users_url %>" method="post">
-  <h1>New User!</h1>
-  <input type="hidden"
-         name="authenticity_token"
-         value="<%= form_authenticity_token %>">
+      <br/>
+      <div class="form-group">
+        <label for="user_username">Username</label>
+        <input type="text"
+        name="user[username]"
+        value="<%= @user.username %>"
+        id="user_username">
+      </div>
 
-  <br/>
-  <div class="form-group">
-    <label for="user_username">Username</label>
-    <input type="text"
-    name="user[username]"
-    value="<%= @user.username %>"
-    id="user_username">
+      <br/>
+      <div class="form-group">
+        <label for="user_password">Password</label>
+        <input type="password"
+        name="user[password]"
+        id="user_password">
+      </div>
+
+      <br/>
+
+      <div class="form-group">
+        <label for="user_weight">Weight</label>
+        <input type="number"
+        name="user[weight]"
+        min="0"
+        max="500"
+        step="1"
+        value="<%= @user.weight %>"
+        id="user_weight">
+      </div>
+
+      <br/>
+
+      <div class="form-group">
+        <label for="user_gender">Gender</label>
+        <input type="radio" name="user[gender]" value="M" id="user_gender">Male
+        <input type="radio" name="user[gender]" value="F" id="user_gender">Female
+      </div>
+
+    <br/>
+
+      <div class="form-group">
+        <label for="birthdate">Birthdate</label>
+        <input type="date"
+               name="user[birthdate]"
+               id="user_birthdate"
+               value="<%= @user.birthdate %>">
+      </div>
+
+    <br/>
+
+      <input type="submit" class="btn btn-primary" value="Create New User">
+      <br>
+      <br>
+      <%= link_to "Sign In", "/session/new" %>
+    </form>
   </div>
-
-  <br/>
-  <div class="form-group">
-    <label for="user_password">Password</label>
-    <input type="password"
-    name="user[password]"
-    id="user_password">
-  </div>
-
-  <br/>
-
-  <div class="form-group">
-    <label for="user_weight">Weight</label>
-    <input type="number"
-    name="user[weight]"
-    min="0"
-    max="500"
-    step="1"
-    value="<%= @user.weight %>"
-    id="user_weight">
-  </div>
-
-  <br/>
-
-  <div class="form-group">
-    <label for="user_gender">Gender</label>
-    <input type="radio" name="user[gender]" value="M" id="user_gender">Male
-    <input type="radio" name="user[gender]" value="F" id="user_gender">Female
-  </div>
-
-<br/>
-
-  <div class="form-group">
-    <label for="birthdate">Birthdate</label>
-    <input type="date" name="user[birthdate]" value="<%= @user.birthdate %>">
-  </div>
-
-<br/>
-
-  <input type="submit" class="btn btn-primary" value="Create New User">
-  <br>
-  <br>
-  <%= link_to "Sign In", "/session/new" %>
-</form>
+</div>

@@ -1,37 +1,41 @@
+<div class="sign-in-user-box">
+  <div class="sign-in-user-form">
+    <form role="form" action="<%= session_url %>" method="post">
+      <h1>Sign In</h1>
+      <br>
+      <input type="hidden"
+             name="authenticity_token"
+             value="<%= form_authenticity_token %>">
 
-<div class="sign-in-user-form">
-  <form role="form" action="<%= session_url %>" method="post">
-    <h1>Sign In</h1>
-    <br>
-    <input type="hidden"
-           name="authenticity_token"
-           value="<%= form_authenticity_token %>">
+      <div class="form-group">
+        <label for="user_username">Username</label>
+        <input type="text"
+        name="user[username]"
+        value="<%= @user.username %>"
+        id="user_username">
+      </div>
 
-    <div class="form-group">
-      <label for="user_username">Username</label>
-      <input type="text"
-      name="user[username]"
-      value="<%= @user.username %>"
-      id="user_username">
-    </div>
+      <div class="form-group">
+        <label for="user_password">Password</label>
+        <input type="password"
+        name="user[password]"
+        id="user_password">
+      </div>
 
-    <div class="form-group">
-      <label for="user_password">Password</label>
-      <input type="password"
-      name="user[password]"
-      id="user_password">
-    </div>
-
-    <input type="submit" class="btn btn-primary" value="Sign In">
-    <br>
-    <br>
-    <%= link_to "Create New User", "/api/users/new" %>
-    <%= link_to "" %>
-  </form>
-  <form class="guest-auth" action="<%= session_url %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name=user[username] value="Sarah">
-    <input type="hidden" name=user[password] value="apples">
-    <input class="form-control demo-account purple-button" type="submit" value="Sign in with demo account">
-  </form>
+      <input type="submit" class="btn btn-primary" value="Sign In">
+      <br>
+      <br>
+      <%= link_to "Create New User", "/api/users/new" %>
+      <%= link_to "" %>
+    </form>
+    <form class="guest-auth" action="<%= session_url %>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name=user[username] value="Sarah">
+      <input type="hidden" name=user[password] value="apples">
+      <input class="form-control demo-account purple-button btn btn-primary"
+             type="submit"
+             id="demo-user"
+             value="Sign in with demo account">
+    </form>
+  </div>
 </div>

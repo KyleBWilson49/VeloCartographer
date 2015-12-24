@@ -45,33 +45,35 @@ var UserProfile = React.createClass({
   render: function () {
     var user = this.state.user;
     return (
-      <div className='user-profile'>
-        <h1>User Profile</h1>
-        <p>{UserStore.message()}</p>
-        <form className="edit-user-form" onSubmit={this.editProfile}>
-          <label htmlFor="user_weight">Weight</label>
-          <br/>
-          <input type="number"
-                 name="user[weight]"
-                 min="0"
-                 max="500"
-                 step="1"
-                 defaultValue={user.weight}
-                 id="user_weight"/>
+      <div className='user-profile clear-fix'>
+        <div className='user-profile-form'>
+          <h1>User Profile</h1>
+          <p>{UserStore.message()}</p>
+          <form className="edit-user-form" onSubmit={this.editProfile}>
+            <label htmlFor="user_weight">Weight</label>
+            <br/>
+            <input type="number"
+                   name="user[weight]"
+                   min="0"
+                   max="500"
+                   step="1"
+                   defaultValue={user.weight}
+                   id="user_weight"/>
+
+            <br/>
+
+            <label htmlFor="birthdate">Birthdate</label>
+            <br/>
+            <input type="date"
+                   name="user[birthdate]"
+                   defaultValue={user.birthdate}/>
 
           <br/>
-
-          <label htmlFor="birthdate">Birthdate</label>
           <br/>
-          <input type="date"
-                 name="user[birthdate]"
-                 defaultValue={user.birthdate}/>
 
-        <br/>
-        <br/>
-
-          <button className="btn btn-primary">Save Changes</button>
-        </form>
+            <button className="btn btn-primary">Save Changes</button>
+          </form>
+        </div>
       </div>
     );
   }

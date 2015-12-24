@@ -25,12 +25,13 @@
 }
 
 #route-title-drop-down {
-  margin-left: 9px;
+  margin-left: 17px;
+  width: 167px;
 }
 
 #route-title {
   margin-left: 30px;
-  width: 144px;
+  width: 165px;
 }
 
 #route-description {
@@ -59,8 +60,8 @@
 }
 
 #workout-title {
-  margin-left: 36px;
-  width: 192px;
+  margin-left: 38px;
+  width: 197px;
 }
 
 #workout-description {
@@ -78,10 +79,17 @@
 
 .workout-form #duration {
   padding-left: 9px;
+  margin-right: 10px;
 }
 
 .workout-form button {
   background: #aaaa55;
   color: #222211;
   margin-left: 90px;
+  margin-top: 20px;
+}
+
+#elevation-chart li {
+  padding: 20px;
+  font-size: 20px;
 }

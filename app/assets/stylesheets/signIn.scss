@@ -1,23 +1,80 @@
 .sign-in-user-form {
   width: 400px;
   margin: auto;
-  margin-top: 100px;
   height: 250px;
-  background: #fff;
+  background-color: rgba(238, 238, 221, 1);
   border-radius: 10px;
+  font-family: 'Open Sans Condensed', sans-serif;  font-size: 16px;
 }
 
 .form-group {
-font-family: 'Open Sans Condensed', sans-serif;  font-size: 16px;
-  margin-left: 70px;
+  font-family: 'Open Sans Condensed', sans-serif;  font-size: 16px;
+  margin-left: 108px;
 }
 
-.btn-primary {
-  background: #06f;
-  margin-left: 160px;
+.sign-in-user-form .btn-primary {
+  background: #444422;
+  color: white;
+  margin-left: 170px;
+  border: 0px;
+}
+
+.sign-in-user-form .btn-primary:hover {
+  background: #99994d;
+  color: black;
+}
+
+.sign-in-user-form .btn-primary:focus:active, .btn-primary.active, .btn-primary:focus, .btn-primary:active {
+  box-shadow: none;
+  outline: none;
+  background-image: none;
+}
+
+.sign-in-user-form .guest-auth #demo-user {
+  margin-left: 0px;
+  margin-top: 25px;
 }
 
 .sign-in-user-form a {
-  margin-left: 140px;
+  margin-left: 155px;
   margin-top: 10px;
+  color: black;
+}
+
+.sign-in-user-form a:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sign-in-user-box {
+  padding-top: 2px;
+  width: 440px;
+  height: 330px;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.sign-in-user-form h1 {
+  margin-top: 15px;
+  margin-left: 156px;
+}
+
+.guest-auth .form-control {
+  background-color: rgba(238, 238, 221, 1);
+  font-family: 'Open Sans Condensed', sans-serif;  font-size: 16px;
+  color: black;
+}
+
+.guest-auth .form-control:hover {
+  font-weight: bold;
+}
+
+.sign-in-user-form #user_username {
+  margin-left: 5px;
+}
+
+.sign-in-user-form #user_password {
+  margin-left: 8px;
 }
