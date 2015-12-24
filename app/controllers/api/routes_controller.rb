@@ -5,8 +5,6 @@ class Api::RoutesController < ApplicationController
 
     if @route.save
       render :index
-    else
-      debugger
     end
   end
 

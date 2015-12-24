@@ -8,6 +8,24 @@
   margin-left: 5px;
 }
 
+.workout-form .form-group {
+  padding-bottom: 5px;
+}
+
+#route-title-drop-down {
+  margin-left: 9px;
+}
+
+#route-title {
+  margin-left: 30px;
+  width: 144px;
+}
+
+#route-description {
+  margin-left: 10px;
+  width: 263px;
+}
+
 #workout-calories {
   width: 60px;
 }
@@ -17,17 +35,41 @@
 }
 
 #workout-duration-hour {
-  width: 25px;
+  width: 32px;
 }
 
 #workout-duration-minute {
-  width: 25px;
+  width: 32px;
 }
 
 #workout-duration-second {
-  width: 25px;
+  width: 32px;
+}
+
+#workout-title {
+  margin-left: 36px;
+  width: 192px;
+}
+
+#workout-description {
+  margin-left: 10px;
+  width: 262px;
+}
+
+.workout-form label {
+  padding-left: 9px;
+}
+
+.workout-form #time-form {
+  padding-bottom: 0px;
+}
+
+.workout-form #duration {
+  padding-left: 9px;
 }
 
 .workout-form button {
-  float: left;
+  background: #aaaa55;
+  color: #222211;
+  margin-left: 90px;
 }

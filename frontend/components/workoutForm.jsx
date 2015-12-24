@@ -143,10 +143,9 @@ var WorkoutForm = React.createClass({
     return (
       <form role='form' className="workout-form" onSubmit={this.createWorkout}>
         <div className="new-route">
-          <h3>Create New Route</h3>
+          <h3>Choose Route</h3>
           <div className="form-group">
-            <label htmlFor='route-title'>Route Name</label>
-            <br/>
+            <label htmlFor='route-title'>Route Name:</label>
             <input type="text"
                    id="route-title"
                    valueLink={this.linkState('route_name')}
@@ -154,8 +153,7 @@ var WorkoutForm = React.createClass({
           </div>
 
           <div className="form-group">
-            <label htmlFor='route-title-drop-down'>Existing Routes</label>
-            <br/>
+            <label htmlFor='route-title-drop-down'>Existing Routes:</label>
             <select id="route-title-drop-down" onChange={this.selectRoute}>
               <option>New Route</option>
               {routes}
@@ -163,10 +161,9 @@ var WorkoutForm = React.createClass({
           </div>
 
           <div className="form-group">
-            <label htmlFor='route-desctiption'>Description</label>
-            <br/>
-            <textarea id="route-desctiption"
+            <textarea id="route-description"
                       valueLink={this.linkState('route_description')}
+                      placeholder="Description of route"
             />
           </div>
         </div>
@@ -174,26 +171,16 @@ var WorkoutForm = React.createClass({
           <div className="new-workout">
           <h3>Workout Details</h3>
           <div className="form-group">
-            <label htmlFor='workout-title'>Title</label>
-            <br/>
+            <label htmlFor='workout-title'>Title:</label>
             <input type="text"
                    id="workout-title"
                    valueLink={this.linkState('title')}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor='workout-desctiption'>Description</label>
-            <br/>
-            <textarea id="workout-desctiption"
-                      valueLink={this.linkState('description')}
-            />
-          </div>
 
-          <div className="form-group">
-            <p>Duration</p>
+          <div className="form-group" id="time-form">
+            <div id="duration">Duration:</div>
             <div className="form-group">
-              <label htmlFor='workout-duration-hour'>Hr</label>
-              <br/>
               <input type="text"
                      id="workout-duration-hour"
                      placeholder="hh"
@@ -202,8 +189,6 @@ var WorkoutForm = React.createClass({
               />
             </div>
             <div className="form-group">
-              <label htmlFor='workout-duration-minute'>Min</label>
-              <br/>
               <input type="text"
                      id="workout-duration-minute"
                      placeholder="mm"
@@ -212,8 +197,6 @@ var WorkoutForm = React.createClass({
               />
             </div>
             <div className="form-group">
-              <label htmlFor='workout-duration-second'>Sec</label>
-              <br/>
               <input type="text"
                      id="workout-duration-second"
                      placeholder="ss"
@@ -221,6 +204,13 @@ var WorkoutForm = React.createClass({
                      valueLink={this.linkState('durationSecond')}
               />
             </div>
+          </div>
+
+          <div className="form-group">
+            <textarea id="workout-description"
+                      valueLink={this.linkState('description')}
+                      placeholder="Description of workout"
+            />
           </div>
         </div>
 

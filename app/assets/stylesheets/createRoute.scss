@@ -10,7 +10,6 @@
   width: 800px;
   margin-left: 20px;
   margin-top: 20px;
-  border: 1px solid #33331a;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, .7);
 }
@@ -35,6 +34,10 @@
   background: #fff;
   background-color: rgba(0, 0, 0, .7);
   overflow: hidden;
+}
+
+.map-tools .table {
+  width: 250px;
 }
 
 .map {

@@ -32,11 +32,26 @@ var RouteInfo = React.createClass({
 
   render: function () {
     return (
-      <div>
-        Distance: {this.state.distance} miles
-        <br/>
-        Elevation Gain: {this.state.gain} meters
-        <br/>
+      <div className="route-stats">
+        <h3>Route Stats</h3>
+        <div className="container">
+          <table className="table">
+            <tbody>
+              <tr>
+                <th>Distance</th>
+                <th>Elevation Gain</th>
+              </tr>
+              <tr>
+                <td>{this.state.distance} miles</td>
+                <td>{(this.state.gain * 3.28).toFixed(0)} feet</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <WorkoutForm />
       </div>
     );
