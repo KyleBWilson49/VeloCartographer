@@ -22,6 +22,9 @@ ElevationStore.__onDispatch = function (payload) {
     case WorkoutConstants.RESET_CHART:
       resetElevation();
       break;
+    case WorkoutConstants.REMOVE_ROUTE:
+      resetElevation();
+      break;
   }
 };
 
@@ -44,6 +47,7 @@ var computeGain = function (elevations) {
 
 var resetElevation = function () {
   _elevations = {};
+  _elevationGain = 0;
   ElevationStore.__emitChange();
 };
 

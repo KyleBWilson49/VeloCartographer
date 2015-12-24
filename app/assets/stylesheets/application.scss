@@ -46,6 +46,17 @@ body {
   background-attachment: fixed;
 }
 
+.error-messages {
+  width: auto;
+  margin: auto;
+  background-color: rgba(0, 0, 0, .5);
+  color: white;
+  font-family: 'Open Sans Condensed', sans-serif;  font-size: 16px;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
 .app {
   margin: auto;
   display: block;
@@ -55,6 +66,7 @@ body {
 
 #nav-bar {
   position: fixed;
+  top: 0px;
   width: 100%;
   margin: auto;
   background: #666633;

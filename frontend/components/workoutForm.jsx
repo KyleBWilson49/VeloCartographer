@@ -74,6 +74,10 @@ var WorkoutForm = React.createClass({
       this.createRoute(route);
     }
 
+    if (durationInSeconds !== durationInSeconds) {
+      return;
+    }
+
     workout.duration = durationInSeconds;
     workout.distance = DirectionsStore.distance().toFixed(2);
     workout.elevation_gain = ElevationStore.gain().toFixed(0);
@@ -125,7 +129,8 @@ var WorkoutForm = React.createClass({
     } else {
       this.setState({
         route_name: "",
-        route_description: ""
+        route_description: "",
+        distance: ""
       });
       ApiUtil.removeRoute();
       this.newRoute = true;
@@ -148,6 +153,7 @@ var WorkoutForm = React.createClass({
             <label htmlFor='route-title'>Route Name:</label>
             <input type="text"
                    id="route-title"
+                   placeholder='"Awesome Route"'
                    valueLink={this.linkState('route_name')}
             />
           </div>
@@ -174,6 +180,7 @@ var WorkoutForm = React.createClass({
             <label htmlFor='workout-title'>Title:</label>
             <input type="text"
                    id="workout-title"
+                   placeholder='"Good Ride"'
                    valueLink={this.linkState('title')}
             />
           </div>

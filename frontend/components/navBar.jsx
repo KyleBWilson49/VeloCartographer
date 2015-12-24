@@ -61,7 +61,6 @@ var NavBar = React.createClass({
         <div className='clear-fix' id='nav-bar'>
           <h1 className='title'><i className="fa fa-globe"></i>  Velo Cartographer</h1>
           <nav onClick={this._logOut}><a href="/session/new">Log Out</a></nav>
-          <nav onClick={this._redirectToUserProfile}>Profile</nav>
           <nav onClick={this._redirectToUserPage}>User Page</nav>
           <nav onClick={this._redirectToFeed}>Feed</nav>
           <nav onClick={this._redirectToCreateRoute}>Log Workout</nav>

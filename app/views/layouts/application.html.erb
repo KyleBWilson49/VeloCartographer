@@ -29,11 +29,11 @@
 <body>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <%= error %>
-  <% end %>
-<% end %>
+  <div class="error-messages">
+    <% if flash[:errors] %>
+      <%= flash[:errors].join(', ') %>
+    <% end %>
+  </div>
 
 <%= yield %>
 

@@ -27,7 +27,15 @@ DirectionsStore.__onDispatch = function (payload) {
     case WorkoutConstants.STORE_MARKERS:
       updateMarkers(payload.markers);
       break;
+    case WorkoutConstants.REMOVE_ROUTE:
+      resetRoute();
+      break;
   }
+};
+
+var resetRoute = function () {
+  _distance = 0;
+  DirectionsStore.__emitChange();
 };
 
 var updateDirections = function (directions) {
