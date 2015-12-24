@@ -2,6 +2,10 @@
   float: left;
 }
 
+.workout-form {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
 .workout-form .form-group {
   float: left;
   margin: 0px;
@@ -10,6 +14,14 @@
 
 .workout-form .form-group {
   padding-bottom: 5px;
+}
+
+.workout-form input {
+  color: black;
+}
+
+.workout-form textarea {
+  color: black;
 }
 
 #route-title-drop-down {
