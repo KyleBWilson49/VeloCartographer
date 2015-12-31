@@ -50,6 +50,30 @@ var PageInfoPane = React.createClass({
     ApiUtil.unfollowUser(this.state.pageUserInfo.user.id);
   },
 
+  renderTime: function (hour, minutes, seconds) {
+    time = '';
+    time += hour;
+    time += ':';
+
+    if (minutes < 10) {
+      time += 0;
+      time += minutes;
+    } else {
+      time += minutes;
+    }
+
+    time += ':';
+
+    if (seconds < 10) {
+      time += 0;
+      time += seconds;
+    } else {
+      time += seconds;
+    }
+
+    return time;
+  },
+
   render: function () {
     if (Object.keys(this.state.pageUserInfo).length > 0) {
       var UserInfo = this.state.pageUserInfo;
@@ -58,7 +82,7 @@ var PageInfoPane = React.createClass({
       var hours = Math.floor(UserTotals.totalDuration / 3600);
       var minutes = Math.floor(UserTotals.totalDuration % 3600 / 60);
       var seconds = UserTotals.totalDuration % 60;
-      var duration = hours + ':' + minutes + ':' + seconds;
+      var duration = this.renderTime(hours, minutes, seconds);
 
       var followings = this.state.currentUserFollowings;
       var followed = false;

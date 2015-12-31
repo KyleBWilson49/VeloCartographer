@@ -40,13 +40,7 @@ var InfoPane = React.createClass({
 
   renderTime: function (hour, minutes, seconds) {
     time = '';
-    if (hour < 10) {
-      time += 0;
-      time += hour;
-    } else {
-      time += hour;
-    }
-
+    time += hour;
     time += ':';
 
     if (minutes < 10) {

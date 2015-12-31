@@ -94,6 +94,7 @@ nav a {
 nav:hover a {
   text-decoration: none;
   color: #000;
+  cursor: default;
 }
 
 .title {
@@ -111,4 +112,5 @@ nav:hover a {
 nav:hover {
   background: #d4d4aa;
   color: #000;
+  cursor: default;
 }

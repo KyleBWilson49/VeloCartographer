@@ -88,10 +88,12 @@
 .feed-item:hover {
   // border: 1px solid #33331a;
   background-color: rgba(221, 221, 187, 1);
+  cursor: default;
 }
 
 .link-create-workout:hover {
   background-color: rgba(221, 221, 187, 1);
+  cursor: default;
 }
 
 .user-workout-list .feed-item:hover {
