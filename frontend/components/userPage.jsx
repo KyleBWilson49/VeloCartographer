@@ -43,6 +43,10 @@ var UserPage = React.createClass({
     });
   },
 
+  logWorkoutPage: function () {
+    this.props.history.pushState(null, 'createRoute');
+  },
+
   render: function () {
     var workouts = this.state.workouts.map(function (workout) {
       return <UserPageWorkoutItem key={workout.workoutId} workout={workout} />;
@@ -56,6 +60,9 @@ var UserPage = React.createClass({
         <div>
           <PageInfoPane user={userPageId}/>
           <div className='user-workout-list'>
+            <div className="link-create-workout" onClick={this.logWorkoutPage}>
+              <h2>Log New Workout</h2>
+            </div>
             {workouts}
           </div>
         </div>
@@ -65,6 +72,9 @@ var UserPage = React.createClass({
         <div>
           <PageInfoPane user={userPageId}/>
           <div className='user-workout-list'>
+            <div className="link-create-workout" onClick={this.logWorkoutPage}>
+              <h2>Log Your Own Workout</h2>
+            </div>
             {workouts}
           </div>
         </div>

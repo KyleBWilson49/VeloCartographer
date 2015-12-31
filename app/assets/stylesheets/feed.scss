@@ -63,11 +63,39 @@
   // background-color: rgba(229, 229, 204, 1);
   background-color: rgba(238, 238, 221, 1);
   box-shadow: 5px 5px 3px black;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.link-create-workout {
+  width: 750px;
+  height: 90px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  // background-color: rgba(229, 229, 204, 1);
+  background-color: rgba(238, 238, 221, 1);
+  box-shadow: 5px 5px 3px black;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.link-create-workout h2 {
+  font-size: 40px;
+  margin-left: 260px;
+  padding-top: 20px;
 }
 
 .feed-item:hover {
-  border: 1px solid #33331a;
+  // border: 1px solid #33331a;
   background-color: rgba(221, 221, 187, 1);
+}
+
+.link-create-workout:hover {
+  background-color: rgba(221, 221, 187, 1);
+}
+
+.user-workout-list .feed-item:hover {
+  background-color: rgba(238, 238, 221, 1);
 }
 
 #feed-item-info {

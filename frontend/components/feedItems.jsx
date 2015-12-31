@@ -8,12 +8,42 @@ module.exports = React.createClass({
       this.history.pushState(null, 'user/' + this.props.workout.userId);
   },
 
+  renderTime: function (hour, minutes, seconds) {
+    time = '';
+    if (hour < 10) {
+      time += 0;
+      time += hour;
+    } else {
+      time += hour;
+    }
+
+    time += ':';
+
+    if (minutes < 10) {
+      time += 0;
+      time += minutes;
+    } else {
+      time += minutes;
+    }
+
+    time += ':';
+
+    if (seconds < 10) {
+      time += 0;
+      time += seconds;
+    } else {
+      time += seconds;
+    }
+
+    return time;
+  },
+
   render: function () {
     var workout = this.props.workout;
     var hours = Math.floor(workout.duration / 3600);
     var minutes = Math.floor(workout.duration % 3600 / 60);
     var seconds = workout.duration % 60;
-    var duration = hours + ':' + minutes + ':' + seconds;
+    var duration = this.renderTime(hours, minutes, seconds);
     var decimalTime = hours + (minutes / 60) + (seconds / 3600);
     var avgSpeed = (workout.distance / decimalTime).toFixed(1);
 

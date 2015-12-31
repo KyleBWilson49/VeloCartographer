@@ -38,6 +38,36 @@ var InfoPane = React.createClass({
     this.setState({ currentUser: CurrentUserStore.user() });
   },
 
+  renderTime: function (hour, minutes, seconds) {
+    time = '';
+    if (hour < 10) {
+      time += 0;
+      time += hour;
+    } else {
+      time += hour;
+    }
+
+    time += ':';
+
+    if (minutes < 10) {
+      time += 0;
+      time += minutes;
+    } else {
+      time += minutes;
+    }
+
+    time += ':';
+
+    if (seconds < 10) {
+      time += 0;
+      time += seconds;
+    } else {
+      time += seconds;
+    }
+
+    return time;
+  },
+
   render: function () {
     var currentUser = this.state.currentUser;
 
@@ -47,7 +77,7 @@ var InfoPane = React.createClass({
       var hours = Math.floor(currentUserTotals.totalDuration / 3600);
       var minutes = Math.floor(currentUserTotals.totalDuration % 3600 / 60);
       var seconds = currentUserTotals.totalDuration % 60;
-      var duration = hours + ':' + minutes + ':' + seconds;
+      var duration = this.renderTime(hours, minutes, seconds);
 
       return (
         <div className="user-info container">

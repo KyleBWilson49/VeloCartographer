@@ -47,6 +47,10 @@ var Feed = React.createClass({
     return false;
   },
 
+  logWorkoutPage: function () {
+    this.props.history.pushState(null, 'createRoute');
+  },
+
   render: function () {
     var workouts = this.state.workouts.map(function (workout) {
         if (this._followed(workout.userId)) {
@@ -57,6 +61,9 @@ var Feed = React.createClass({
     return (
       <div className="feed-page clear-fix">
         <div className="feed">
+          <div className="link-create-workout" onClick={this.logWorkoutPage}>
+            <h2>Log New Workout</h2>
+          </div>
           {workouts}
         </div>
         <div className="feed-side-bar">
