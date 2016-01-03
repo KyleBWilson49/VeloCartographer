@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.create({
   username: "Kyle",
   password: "password",
@@ -165,15 +157,6 @@ Route.create({
 })
 
 Route.create({
-  user_id: 4,
-  route_path: "[[37.77121431059266,-122.44210654713896],[37.883366427429706,-122.62499558692292],[37.957339686104746,-122.55370756012508],[37.77220164172067,-122.44488406162452]]",
-  route_name: "Long Route North",
-  elevation_gain: 339,
-  distance: 61.14,
-  route_description: "north of SF through the forest"
-})
-
-Route.create({
   user_id: 5,
   route_path: "[[37.781373767140956,-122.41141654332375],[37.77645811884421,-122.41764252736368],[37.8051192769489,-122.42364425732751],[37.80861477071381,-122.41283604726021],[37.79533394762831,-122.39394952104124],[37.78152654908751,-122.41122288407479]]",
   route_name: "Lunch Route",
@@ -189,6 +172,15 @@ Route.create({
   elevation_gain: 307,
   distance: 9.45,
   route_description: "few hills"
+})
+
+Route.create({
+  user_id: 2,
+  route_path: "[[37.76065463755746,-122.42829553176034],[37.76053481261758,-122.50986046685017],[37.82854324932416,-122.52686211060279],[37.76091234861976,-122.42831607254033]]",
+  route_name: "Headlands",
+  elevation_gain: 717,
+  distance: 28.27,
+  route_description: "very hilly route"
 })
 
 Workout.create({
@@ -221,8 +213,8 @@ Workout.create({
   distance: 9.39,
   calories_burned: 375,
   elevation_gain: 226,
-  title: "Easy Sunday Ride",
-  description: "through the park to the beach",
+  title: "Easy Ride",
+  description: "not much to say",
   duration: 2720,
   start_position: "37.77355570686374,-122.44089453942149"
 })
@@ -233,8 +225,8 @@ Workout.create({
   distance: 9.39,
   calories_burned: 375,
   elevation_gain: 226,
-  title: "Easy Sunday Ride",
-  description: "through the park to the beach",
+  title: "Ride With Friends",
+  description: "park ride",
   duration: 2720,
   start_position: "37.77355570686374,-122.44089453942149"
 })
@@ -252,25 +244,13 @@ Workout.create({
 })
 
 Workout.create({
-  user_id: 4,
-  route_id: 3,
-  distance: 61.14,
-  calories_burned: 2445,
-  elevation_gain: 70,
-  title: "Long Ass Ride",
-  description: "Very very tired",
-  duration: 12025,
-  start_position: "37.77220164172067,-122.44488406162452"
-})
-
-Workout.create({
   user_id: 5,
   route_id: 3,
   distance: 9.39,
   calories_burned: 375,
   elevation_gain: 226,
-  title: "Easy Sunday Ride",
-  description: "through the park to the beach",
+  title: "Sunday Ride",
+  description: "group ride through the park",
   duration: 2720,
   start_position: "37.77355570686374,-122.44089453942149"
 })
@@ -293,8 +273,8 @@ Workout.create({
   distance: 9.39,
   calories_burned: 375,
   elevation_gain: 226,
-  title: "Easy Sunday Ride",
-  description: "through the park to the beach",
+  title: "Sunday Romp Through The Park",
+  description: "out to the beach",
   duration: 2720,
   start_position: "37.77355570686374,-122.44089453942149"
 })
@@ -305,9 +285,9 @@ Workout.create({
   distance: 9.39,
   calories_burned: 375,
   elevation_gain: 226,
-  title: "Easy Sunday Ride",
-  description: "through the park to the beach",
-  duration: 2720,
+  title: "Out and About",
+  description: "riding around after work",
+  duration: 2620,
   start_position: "37.77355570686374,-122.44089453942149"
 })
 
@@ -317,8 +297,8 @@ Workout.create({
   distance: 9.39,
   calories_burned: 375,
   elevation_gain: 226,
-  title: "Easy Sunday Ride",
-  description: "through the park to the beach",
+  title: "Easy Sunday Group Ride",
+  description: "it was very windy at the beach",
   duration: 2720,
   start_position: "37.77355570686374,-122.44089453942149"
 })
@@ -341,8 +321,164 @@ Workout.create({
   distance: 9.45,
   calories_burned: 378,
   elevation_gain: 307,
-  title: "Evening Cruise",
-  description: "easy ride",
+  title: "Afternoon Spin",
+  description: "went to spin the legs",
   duration: 2160,
   start_position: "37.78099918190455,-122.41188677655225"
+})
+
+Workout.create ({
+  user_id: 1,
+  distance: 6.53,
+  calories_burned: 261,
+  elevation_gain: 70,
+  title: "Lunch Ride",
+  description: "get out of the office",
+  duration: 1703,
+  start_position: "37.78152654908751,-122.41122288407479"
+})
+
+Workout.create ({
+  user_id: 2,
+  distance: 9.67,
+  calories_burned: 386,
+  elevation_gain: 313,
+  title: "Ride to Midtown Terrace",
+  description: "easy out and back",
+  duration: 1958,
+  start_position: "37.78099918190455,-122.41188677655225"
+})
+
+Workout.create ({
+  user_id: 2,
+  distance: 28.27,
+  calories_burned: 1130,
+  elevation_gain: 717,
+  title: "Hammer day",
+  description: "so very tired",
+  duration: 4703,
+  start_position: "37.76091234861976,-122.42831607254033"
+})
+
+Workout.create ({
+  user_id: 10,
+  distance: 28.27,
+  calories_burned: 1130,
+  elevation_gain: 717,
+  title: "Fast Ride",
+  description: "group ride",
+  duration: 4703,
+  start_position: "37.76091234861976,-122.42831607254033"
+})
+
+Workout.create ({
+  user_id: 9,
+  distance: 28.27,
+  calories_burned: 1130,
+  elevation_gain: 717,
+  title: "Sat Morning Ride",
+  description: "we pushed the pace today",
+  duration: 4703,
+  start_position: "37.76091234861976,-122.42831607254033"
+})
+
+Workout.create ({
+  user_id: 8,
+  distance: 28.27,
+  calories_burned: 1130,
+  elevation_gain: 717,
+  title: "Saturday Ride",
+  description: "struggled to keep up",
+  duration: 4703,
+  start_position: "37.76091234861976,-122.42831607254033"
+})
+
+Workout.create ({
+  user_id: 7,
+  distance: 28.27,
+  calories_burned: 1130,
+  elevation_gain: 717,
+  title: "Group Ride",
+  description: "fun time out",
+  duration: 4703,
+  start_position: "37.76091234861976,-122.42831607254033"
+})
+
+Workout.create ({
+  user_id: 6,
+  distance: 6.53,
+  calories_burned: 261,
+  elevation_gain: 70,
+  title: "Lunch Outting",
+  description: "stretch out the legs",
+  duration: 1703,
+  start_position: "37.78152654908751,-122.41122288407479"
+})
+
+Workout.create({
+  user_id: 3,
+  route_id: 1,
+  distance: 1.57,
+  calories_burned: 62,
+  elevation_gain: 0,
+  title: "Tuesday Morning",
+  description: "ride to work",
+  duration: 900,
+  start_position: "37.7772612498306,-122.43516688612954"
+})
+
+Workout.create({
+  user_id: 3,
+  distance: 22.51,
+  calories_burned: 900,
+  elevation_gain: 465,
+  title: "Beach Ride",
+  description: "easy ride down the coast",
+  duration: 3959,
+  start_position: "37.77424187607269,-122.51147598792733"
+})
+
+Workout.create({
+  user_id: 4,
+  distance: 17.52,
+  calories_burned: 700,
+  elevation_gain: 334,
+  title: "Bay to Beach and Back",
+  description: "fast loop",
+  duration: 2909,
+  start_position: "37.789025792953275,-122.38923085811678"
+})
+
+Workout.create({
+  user_id: 5,
+  route_id: 3,
+  distance: 9.39,
+  calories_burned: 375,
+  elevation_gain: 226,
+  title: "Fast Evening Ride",
+  description: "To the beach",
+  duration: 2034,
+  start_position: "37.77355570686374,-122.44089453942149"
+})
+
+Workout.create ({
+  user_id: 4,
+  distance: 28.27,
+  calories_burned: 1130,
+  elevation_gain: 717,
+  title: "Normal Wednesday Night Ride",
+  description: "interval day",
+  duration: 4936,
+  start_position: "37.76091234861976,-122.42831607254033"
+})
+
+Workout.create ({
+  user_id: 4,
+  distance: 28.27,
+  calories_burned: 1130,
+  elevation_gain: 717,
+  title: "How Fast Can I Go",
+  description: "pushed the pace as hard as I could",
+  duration: 4620,
+  start_position: "37.76091234861976,-122.42831607254033"
 })
