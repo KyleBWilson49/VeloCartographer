@@ -12,10 +12,10 @@ built with Rails and React.js. In VeloCartographer allows users to:
 - [X] Create an account
 - [X] Log in / Log out
 - [X] Create workouts
-- [X] Track distance and time on bike
-- [X] Track improvement over time
-- [X] Compare with friends
 - [X] Create routes on map
+- [X] Feed of your own workouts
+- [X] Follow friends
+- [X] Feed of friends workouts
 
 ## Design Docs
 * [View Wireframes][view]
@@ -81,7 +81,12 @@ page.
 
 
 ### Bonus Features (TBD)
-- [X] Make the site look better.
+- [X] Make the site look better
+- [X] Routes have elevation data
+- [X] Save routes
+- [ ] Track distance and time on bike
+- [ ] Track improvement over time
+- [ ] Compare with friends
 - [ ] Pagination / infinite scroll for workouts Index
 - [ ] Allow user to specify run or bike
 - [ ] Make routes have easier creation
