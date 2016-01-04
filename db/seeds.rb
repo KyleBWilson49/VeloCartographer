@@ -422,7 +422,31 @@ Workout.create({
   calories_burned: 62,
   elevation_gain: 0,
   title: "Tuesday Morning",
+  description: "it's kind of chilly out",
+  duration: 900,
+  start_position: "37.7772612498306,-122.43516688612954"
+})
+
+Workout.create({
+  user_id: 3,
+  route_id: 1,
+  distance: 1.57,
+  calories_burned: 62,
+  elevation_gain: 0,
+  title: "Wednesday Morning",
   description: "ride to work",
+  duration: 900,
+  start_position: "37.7772612498306,-122.43516688612954"
+})
+
+Workout.create({
+  user_id: 3,
+  route_id: 1,
+  distance: 1.57,
+  calories_burned: 62,
+  elevation_gain: 0,
+  title: "Thursday Morning",
+  description: "it was raining and cold",
   duration: 900,
   start_position: "37.7772612498306,-122.43516688612954"
 })
@@ -457,7 +481,7 @@ Workout.create({
   elevation_gain: 226,
   title: "Fast Evening Ride",
   description: "To the beach",
-  duration: 2034,
+  duration: 1634,
   start_position: "37.77355570686374,-122.44089453942149"
 })
 
@@ -480,5 +504,16 @@ Workout.create ({
   title: "How Fast Can I Go",
   description: "pushed the pace as hard as I could",
   duration: 4620,
+  start_position: "37.76091234861976,-122.42831607254033"
+})
+
+Workout.create ({
+  user_id: 5,
+  distance: 28.27,
+  calories_burned: 1130,
+  elevation_gain: 717,
+  title: "Long Ride",
+  description: "building distance",
+  duration: 5020,
   start_position: "37.76091234861976,-122.42831607254033"
 })

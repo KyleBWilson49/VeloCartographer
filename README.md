@@ -9,13 +9,13 @@
 VeloCartographer is a web application inspired by MapMyRide and Strava that is
 built with Rails and React.js. In VeloCartographer allows users to:
 
-- [ ] Create an account
-- [ ] Log in / Log out
-- [ ] Create workouts
-- [ ] Track distance and time on bike
-- [ ] Track improvement over time
-- [ ] Compare with friends
-- [ ] Create routes on map
+- [X] Create an account
+- [X] Log in / Log out
+- [X] Create workouts
+- [X] Track distance and time on bike
+- [X] Track improvement over time
+- [X] Compare with friends
+- [X] Create routes on map
 
 ## Design Docs
 * [View Wireframes][view]
@@ -81,7 +81,7 @@ page.
 
 
 ### Bonus Features (TBD)
-- [ ] Make the site look better.
+- [X] Make the site look better.
 - [ ] Pagination / infinite scroll for workouts Index
 - [ ] Allow user to specify run or bike
 - [ ] Make routes have easier creation
