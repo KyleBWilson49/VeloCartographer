@@ -1,8 +1,8 @@
 # VeloCartographer
 
-[Heroku link][heroku] **NB:** In the process now.
+[Heroku link][heroku]
 
-[heroku]: https://velocartographer.herokuapp.com/
+[heroku]: https://velocartographer.com/
 
 ## Minimum Viable Product
 
