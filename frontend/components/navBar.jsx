@@ -51,16 +51,13 @@ var NavBar = React.createClass({
       buttons = (
         <div className='clear-fix' id='nav-bar'>
           <h1 className='title'><i className="fa fa-globe"></i>  Velo Cartographer</h1>
-          <nav><a href="/api/users/new">Sign Up</a></nav>
-          <nav><a href="/session/new">Sign In</a></nav>
-          <nav onClick={this._redirectToFeed}>Explore</nav>
         </div>
       );
     } else {
       buttons = (
         <div className='clear-fix' id='nav-bar'>
           <h1 className='title'><i className="fa fa-globe"></i>  Velo Cartographer</h1>
-          <nav onClick={this._logOut}><a href="/session/new">Log Out</a></nav>
+          <a href="/session/new"><nav onClick={this._logOut}>Log Out</nav></a>
           <nav onClick={this._redirectToUserPage}>User Page</nav>
           <nav onClick={this._redirectToFeed}>Feed</nav>
           <nav onClick={this._redirectToCreateRoute}>Log Workout</nav>

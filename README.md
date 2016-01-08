@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: https://velocartographer.com/
+[heroku]: www.velocartographer.com/
 
 ## Minimum Viable Product
 
