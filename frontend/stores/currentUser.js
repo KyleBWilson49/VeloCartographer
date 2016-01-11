@@ -80,7 +80,7 @@ var resetMessage = function (message) {
 
 var logOut = function () {
   _currentUser = {};
-  CurrentUserStore.__emitChange();
+  // CurrentUserStore.__emitChange();
 };
 
 module.exports = CurrentUserStore;
