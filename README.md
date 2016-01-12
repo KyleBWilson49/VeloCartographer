@@ -2,7 +2,7 @@
 
 [Live link][heroku]
 
-[heroku]: velocartographer.com/
+[heroku]: http://www.velocartographer.com/
 
 
 VeloCartographer is a web application inspired by MapMyRide and Strava that is
