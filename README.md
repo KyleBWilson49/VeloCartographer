@@ -101,3 +101,9 @@ page.
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
+
+## About
+
+More of my work can be found on my [portfolio][p_link]
+
+[p_link]: http://kylebwilson49.github.io/
