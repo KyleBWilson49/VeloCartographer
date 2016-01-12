@@ -1,10 +1,9 @@
 # VeloCartographer
 
-[Heroku link][heroku]
+[Live link][heroku]
 
-[heroku]: www.velocartographer.com/
+[heroku]: velocartographer.com/
 
-## Minimum Viable Product
 
 VeloCartographer is a web application inspired by MapMyRide and Strava that is
 built with Rails and React.js. In VeloCartographer allows users to:
