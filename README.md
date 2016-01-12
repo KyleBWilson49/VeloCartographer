@@ -4,28 +4,35 @@
 
 [heroku]: http://www.velocartographer.com/
 
+## Summary
 
-VeloCartographer is a web application inspired by MapMyRide and Strava that is
-built with Rails and React.js. In VeloCartographer allows users to:
+VeloCartographer is a network for cyclist to track and show off their training
 
-- [X] Create an account
-- [X] Log in / Log out
-- [X] Create workouts
-- [X] Create routes on map
-- [X] Feed of your own workouts
-- [X] Follow friends
-- [X] Feed of friends workouts
+Create and save cycling routes using Google Maps, log workouts to a new or saved
+route, keep track of total miles logged, and see what workouts your friends
+have done.
 
-## Design Docs
+## Features
+
+* Google Maps with bike layer for better visuals
+* Google Maps Routes to display the route taken
+* Google Maps Elevations displays route elevation chart
+* Google Maps Roads makes for easier marker placement by snapping to roads.
+* Ruby on Rails with SQL provides users feed of followed friends
+* React.js creates seamless transition between pages
+* BCrypt password hashing for signups and logins
+
+## Implementation Records
+
+### Original Design Docs
 * [View Wireframes][view]
 * [DB schema][schema]
 
 [view]: ./docs/views.md
 [schema]: ./docs/schema.md
 
-## Implementation Timeline
 
-### Phase 1: User Authentication, Workout Model and JSON API (1 day)
+### Phase 1: User Authentication, Workout Model and JSON API (.5 days)
 
 In Phase 1, I will begin by implementing user signup and authentication (using
 BCrypt). There will be a basic landing page after signup that will contain the
@@ -35,7 +42,7 @@ page. Also will get the app setup on heroku.
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture with User and Workout CRUD (2 days)
+### Phase 2: Flux Architecture with User and Workout CRUD (1 days)
 
 Phase 2 is all about setting up Flux, the React Router and React views. After
 the basic flux setup is done, a user store will be set up so that the user can
@@ -49,7 +56,7 @@ I will begin to use bootstrap to start styling my app.
 
 [Details][phase-two]
 
-### Phase 3: User Stats and Friends (2 days)
+### Phase 3: User Stats and Friends (1 days)
 
 Phase 3 adds running totals for users workouts informations, along with
 choosing the amount of time covered in the stats infographic. This will require
@@ -70,7 +77,7 @@ users will be able to use the route again with out creating it.
 
 [Details][phase-four]
 
-### Phase 5: Styling Cleanup and Seeding (1 day)
+### Phase 5: Styling Cleanup and Seeding (3 day)
 
 Phase 5 will be about testing for any bugs and making the styling look better
 I will run the site through everything it should do in many ways to find bugs.
