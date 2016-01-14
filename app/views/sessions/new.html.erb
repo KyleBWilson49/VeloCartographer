@@ -32,11 +32,13 @@
       </div>
 
       <input type="submit" class="btn btn-primary" value="Sign In">
-      <br>
-      <br>
-      <%= link_to "Create New User", "/api/users/new" %>
-      <%= link_to "" %>
+
     </form>
+    <a href="/api/users/new"><div class="new-user-button clear-fix">
+      <!-- <%= link_to "Create New User", "/api/users/new" %> -->
+      <p>Create New User<p>
+    </div></a>
+
     <form class="guest-auth" action="<%= session_url %>" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name=user[username] value="Sarah">

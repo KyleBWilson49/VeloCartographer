@@ -90,7 +90,7 @@ page.
 - [X] Make the site look better
 - [X] Routes have elevation data
 - [X] Save routes
-- [ ] Track distance and time on bike
+- [ ] Track distance and time on bike by date ranges
 - [ ] Track improvement over time
 - [ ] Compare with friends
 - [ ] Pagination / infinite scroll for workouts Index
