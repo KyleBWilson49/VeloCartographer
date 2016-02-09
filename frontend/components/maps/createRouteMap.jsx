@@ -71,6 +71,9 @@ var CreateRouteMap = React.createClass({
   },
 
   handleClick: function (e) {
+    if (this.state.markers.length === 10) {
+      return;
+    }
     var lat = e.latLng.lat();
     var lng = e.latLng.lng();
 
